@@ -43,5 +43,6 @@ export default function Home() {
       </div>
       </div>
     </main>
+    // use https://preline.co/ for components because it's cool
   );
 }
