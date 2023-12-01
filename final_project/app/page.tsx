@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from 'next/link';
+import Button from './button';
+
 
 export default function Home() {
   return (
@@ -7,13 +10,14 @@ export default function Home() {
       <div className="flex justify-center py-4">
         <h1 className=" backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white">
           Leccy cars innit ®️
+          <Button></Button>
         </h1>
       </div>
 
       <div className="flex justify-center py-10">
         <div className="flex flex-col backdrop-blur-md bg-white/10 items-center justify-center gap-3 ">
-          <div className="w-full text-gray-700 text-center bg-red-400 hover:-translate-y-0 hover:scale-90 duration-100">
-            <button>SDG Goals</button>
+          <div>
+            <Button></Button> 
           </div>
           <div className="w-full text-gray-700 text-center bg-gray-400 py-4 hover:-translate-y-0 hover:scale-90 duration-100">
             <button>Electric Cars</button>
@@ -39,6 +43,7 @@ export default function Home() {
           <div className="text-gray-700 text-center bg-blue-400  hover:-translate-y-0 hover:scale-90 duration-100">
             <button>aaa</button>
           </div>
+          <div></div>
         </div>
       </div>
       </div>
