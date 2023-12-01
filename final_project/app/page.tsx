@@ -10,7 +10,6 @@ export default function Home() {
       <div className="flex justify-center py-4">
         <h1 className=" backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white">
           Leccy cars innit ®️
-          <Button></Button>
         </h1>
       </div>
 
