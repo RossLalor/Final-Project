@@ -18,28 +18,27 @@ export default function Home() {
           <div>
             <Button></Button> 
           </div>
-          <div className="w-full text-gray-700 text-center bg-gray-400 py-4 hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>Electric Cars</button>
           </div>
-          <div className="text-gray-700 text-center bg-orange-400  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>Emissions</button>
           </div>
-          <div>
-            <button className="text-gray-700 text-center bg-amber-400  hover:-translate-y-0 hover:scale-90 duration-100">aaa</button>
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full"><button>aaa</button>
           </div>
-          <div className="text-gray-700 text-center bg-teal-400  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>aaa</button>
           </div>
-          <div className="text-gray-700 text-center bg-cyan-400  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>aaa</button>
           </div>
-          <div className="text-gray-700 text-center bg-orange-900  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>aaa</button>
           </div>
-          <div className="text-gray-700 text-center bg-purple-900  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>aaa</button>
           </div>
-          <div className="text-gray-700 text-center bg-blue-400  hover:-translate-y-0 hover:scale-90 duration-100">
+          <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
             <button>aaa</button>
           </div>
           <div></div>
