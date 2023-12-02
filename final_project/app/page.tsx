@@ -5,16 +5,6 @@ import { ClerkProvider } from '@clerk/nextjs';
 import Clerk from '@clerk/clerk-js';
 import Signin from "./signin";
 
-const clerkFrontendApi = 'pk_test_c2F2ZWQtaHVtcGJhY2stNDMuY2xlcmsuYWNjb3VudHMuZGV2JA';
-const clerk = new Clerk(clerkFrontendApi);
-
-(async () => {
-  await clerk.load({
-    // Set load options here...
-  });
-})();
-
-
 export default function Home() {
   return (
     <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')]">
