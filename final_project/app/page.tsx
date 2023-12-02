@@ -5,6 +5,8 @@ import { ClerkProvider } from '@clerk/nextjs';
 import Clerk from '@clerk/clerk-js';
 import Signin from "./signin";
 
+import { UserButton } from "@clerk/nextjs";
+ 
 export default function Home() {
   return (
     <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')]">
@@ -15,6 +17,9 @@ export default function Home() {
         </h1>
       </div>
 
+      <div>
+      <UserButton afterSignOutUrl="butts"/>
+    </div>
       <div className="flex justify-center py-10">
         <div className="flex flex-col backdrop-blur-md bg-white/10 items-center justify-center gap-3 ">
           <div>
