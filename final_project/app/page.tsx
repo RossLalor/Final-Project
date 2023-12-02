@@ -1,6 +1,18 @@
 import Image from "next/image";
 import Link from 'next/link';
 import Button from './button';
+import { ClerkProvider } from '@clerk/nextjs';
+import Clerk from '@clerk/clerk-js';
+import Signin from "./signin";
+
+const clerkFrontendApi = 'pk_test_c2F2ZWQtaHVtcGJhY2stNDMuY2xlcmsuYWNjb3VudHMuZGV2JA';
+const clerk = new Clerk(clerkFrontendApi);
+
+(async () => {
+  await clerk.load({
+    // Set load options here...
+  });
+})();
 
 
 export default function Home() {
@@ -39,7 +51,7 @@ export default function Home() {
             <button>aaa</button>
           </div>
           <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-            <button>aaa</button>
+            <Signin></Signin>
           </div>
           <div></div>
         </div>
