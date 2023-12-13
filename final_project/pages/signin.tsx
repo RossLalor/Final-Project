@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "../app/globals.css";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')]">
