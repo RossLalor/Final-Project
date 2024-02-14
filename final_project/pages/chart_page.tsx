@@ -8,7 +8,7 @@ const data = {
   labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
   datasets: [
     {
-      label: 'Electric Cars Sold (thousands)',
+      label: 'Electric Cars Sold (thousands) (placeholder)',
       backgroundColor: 'rgba(75,192,192,0.4)',
       borderColor: 'rgba(75,192,192,1)',
       data: [65, 59, 80, 81, 56, 55, 40, 12, 4],

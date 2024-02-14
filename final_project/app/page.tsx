@@ -37,7 +37,7 @@ export default function Home() {
               <button>Emissions</button>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>aaa</button>
+              <Link href={`/chart_page`}>Chart Page</Link>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
               <button>aaa</button>
