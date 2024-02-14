@@ -6,7 +6,7 @@ const Navbar = () => {
       {/* ... other navbar content ... */}
       <div className="text-sm lg:flex-grow">
         {/* Corrected Link usage */}
-        <Link href="signin">ARSE
+        <Link href="signin" >Sign-in
         </Link>
         <Link href="/about">ARSE
         </Link>

@@ -23,9 +23,10 @@ export default function Home() {
             Leccy cars innit ®️
           </h1>
         </div>
+        
 
         <div className="flex justify-center py-10">
-          <div className="flex flex-col backdrop-blur-md bg-white/10 items-center justify-center gap-3 ">
+          <div className="flex flex-col backdrop-blur-md bg-white/10 p-4 items-center justify-center gap-3 ">
             <div>
               <Button></Button>
             </div>

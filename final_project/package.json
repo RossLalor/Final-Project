@@ -11,12 +11,16 @@
   "dependencies": {
     "@clerk/clerk-js": "^4.65.5",
     "@clerk/nextjs": "^4.27.2",
+    "chart.js": "^4.4.1",
     "clerk": "^0.8.3",
+    "csv-parser": "^3.0.0",
     "next": "^13.5.3",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.1",
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18",
