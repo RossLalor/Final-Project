@@ -31,7 +31,7 @@ export default function Home() {
               <Button></Button>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>Electric Cars</button>
+              <Link href={`/electric_cars`}>Electric Cars</Link>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
               <button>Emissions</button>
