@@ -1,4 +1,5 @@
-// First, import Chart.js components and hooks
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,69 +8,82 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
-import axios from "axios";
-import { useEffect, useState } from "react";
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
-// Register the Chart.js components we will use
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+// Define TypeScript interfaces for your data
+interface Pollutant {
+  aqi: number;
+  concentration: number;
+  unit: string;
+}
+
+interface AirQualityData {
+  overall_aqi: number;
+  [key: string]: any; // Consider specifying a more detailed type if possible
+}
+
+interface ChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor: string;
+}
+
+interface ChartData {
+  labels: string[];
+  datasets: ChartDataset[];
+}
 
 export default function AirQualityPage() {
-  const [cityName, setCityName] = useState("Dublin");
-  const [overallAQI, setOverallAQI] = useState();
-  const [chartData, setChartData] = useState({
+  const [cityName, setCityName] = useState('Dublin');
+  const [overallAQI, setOverallAQI] = useState<number | undefined>(undefined);
+  const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [],
   });
 
   useEffect(() => {
     async function fetchAirQualityData() {
-      const response = await axios.get(
+      const response = await axios.get<AirQualityData>(
         `https://api.api-ninjas.com/v1/airquality?city=${cityName}`,
         {
           headers: {
-            "X-Api-Key": "XiAzckvlLZgmHJSbTBHblA==e2njZhactMjdBeTw",
+            'X-Api-Key': 'YOUR_API_KEY',
           },
         }
       );
 
       const data = response.data;
+      if (!data) return;
+
       setOverallAQI(data.overall_aqi);
 
-      const pollutants = Object.entries(data).reduce((acc, [key, value]) => {
-        if (typeof value === "object" && key !== "overall_aqi") {
-          let unit = "";
+      const pollutants = Object.entries(data).reduce((acc: {[key: string]: Pollutant}, [key, value]) => {
+        if (value && typeof value === 'object' && key !== 'overall_aqi') {
+          let unit = '';
           switch (key) {
-            case "CO":
-            case "NO2":
-            case "SO2":
-              unit = "ppm";
+            case 'CO':
+            case 'NO2':
+            case 'SO2':
+              unit = 'ppm';
               break;
-            case "O3":
-              unit = "ppb";
+            case 'O3':
+              unit = 'ppb';
               break;
-            case "PM2.5":
-            case "PM10":
-              unit = "µg/m^3";
+            case 'PM2.5':
+            case 'PM10':
+              unit = 'µg/m^3';
               break;
             default:
-              unit = "";
+              unit = '';
           }
-          const updatedAcc: { [key: string]: any } = acc;
-          updatedAcc[key.toUpperCase()] = {
+          acc[key.toUpperCase()] = {
             aqi: value.aqi,
             concentration: value.concentration,
             unit,
           };
-          acc = updatedAcc;
         }
         return acc;
       }, {});
@@ -78,9 +92,9 @@ export default function AirQualityPage() {
         labels: Object.keys(pollutants),
         datasets: [
           {
-            label: "AQI",
-            data: Object.values(pollutants).map((p) => p.aqi),
-            backgroundColor: "rgba(53, 162, 235, 0.5)",
+            label: 'AQI',
+            data: Object.values(pollutants).map((p: Pollutant) => p.aqi),
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
           },
         ],
       });
@@ -91,7 +105,6 @@ export default function AirQualityPage() {
 
   return (
     <main className="flex flex-col items-center p-12 bg-[url('../images/background.svg')] bg-cover min-h-screen">
-      <title>Air Quality Information</title>
       <div className="text-center">
         <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 text-white">
           Air Quality in {cityName} (live data from API-Ninjas.com)
@@ -99,7 +112,6 @@ export default function AirQualityPage() {
         <p className="text-2xl text-white">Overall AQI: {overallAQI}</p>
       </div>
 
-      {/* Chart container with specific width and maximum width */}
       <div className="w-full md:w-1/2 lg:max-w-xl mx-auto">
         <Bar
           data={chartData}
@@ -107,8 +119,8 @@ export default function AirQualityPage() {
             responsive: true,
             maintainAspectRatio: true,
             plugins: {
-              legend: { position: "top" },
-              title: { display: true, text: "Pollutant AQI" },
+              legend: { position: 'top' },
+              title: { display: true, text: 'Pollutant AQI' },
             },
           }}
         />

@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/clerk-js": "^4.65.5",
     "@clerk/nextjs": "^4.27.2",
+    "axiom": "^0.1.6",
     "axios": "^1.6.7",
     "chart.js": "^4.4.1",
     "clerk": "^0.8.3",
