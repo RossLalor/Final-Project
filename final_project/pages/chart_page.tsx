@@ -50,7 +50,7 @@ export default function AirQualityPage() {
         `https://api.api-ninjas.com/v1/airquality?city=${cityName}`,
         {
           headers: {
-            'X-Api-Key': 'YOUR_API_KEY',
+            'X-Api-Key': 'XiAzckvlLZgmHJSbTBHblA==e2njZhactMjdBeTw',
           },
         }
       );
