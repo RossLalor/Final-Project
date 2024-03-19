@@ -205,7 +205,7 @@ export default function AirQualityPage() {
         />
       </div>
       {/* Discussion section for each emission type */}
-      <div className="w-full max-w-4xl mt-8 grid grid-cols-3 gap-4">
+      <div className="w-full max-w-4xl mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="backdrop-blue-md flex flex-col items-center justify-center bg-black/60 p-4 rounded-lg shadow">
           <h3 className="font-bold text-md">CO</h3>
           <p className="text-sm">
