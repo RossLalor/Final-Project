@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css'
+import FirebaseSignIn from './FirebaseSignIn.client'; // Make sure this is the correct path
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
+      <FirebaseSignIn />
       <html lang="en">
         <body>{children}</body>
  

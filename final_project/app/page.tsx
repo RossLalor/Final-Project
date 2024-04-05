@@ -5,8 +5,19 @@ import { ClerkProvider, UserButton } from '@clerk/nextjs';
 import Clerk from '@clerk/clerk-js';
 import Signin from "./signin";
 import Navbar from "./Navbar";
+import { collection, addDoc } from "firebase/firestore"; // Import the functions you need from the SDKs you need
 
 export default function Home() {
+
+  // add item to database
+
+  // read items from database
+
+  // delete items from database
+
+  const addItem = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  }
   return (
     <>
     <Navbar /> {/* Include the Navbar at the top */}
