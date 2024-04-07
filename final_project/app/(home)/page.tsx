@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from 'next/link';
-import Button from './button';
+
 import { ClerkProvider, UserButton } from '@clerk/nextjs';
 import Clerk from '@clerk/clerk-js';
-import Signin from "./signin";
-import Navbar from "./Navbar";
+import { SignIn } from "@clerk/nextjs";
+import Navbar from "../components/Navbar";
 import { collection, addDoc } from "firebase/firestore"; // Import the functions you need from the SDKs you need
 
 export default function Home() {
@@ -20,7 +20,6 @@ export default function Home() {
   }
   return (
     <>
-    <Navbar /> {/* Include the Navbar at the top */}
     <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')] relative">
       {/* Ensure the UserButton is clickable and on top of all other elements */}
       <div className="absolute top-0 right-0 p-4 z-10">
@@ -39,31 +38,31 @@ export default function Home() {
         <div className="flex justify-center py-10">
           <div className="flex flex-col backdrop-blur-md bg-white/10 p-4 items-center justify-center gap-3 ">
             <div>
-              <Button></Button>
+              {/* <Button></Button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <Link href={`/electric_cars`}>Electric Cars</Link>
+              <Link href={`/electricCars`}>Electric Cars</Link>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>Emissions</button>
+              {/* <button>Emissions</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <Link href={`/chart_page`}>Chart Page</Link>
+              <Link href={`/charts`}>Chart Page</Link>
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>aaa</button>
+              {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>aaa</button>
+              {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>aaa</button>
+              {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <button>aaa</button>
+              {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <Signin></Signin>
+              <Link href={`/SignIn`}>Sign In</Link>
             </div>
           </div>
         </div>

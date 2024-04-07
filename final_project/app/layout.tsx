@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs';
+import Navbar from './components/Navbar';
 import './globals.css'
 import FirebaseSignIn from './FirebaseSignIn.client'; // Make sure this is the correct path
 
 
 const inter = Inter({ subsets: ['latin'] })
+
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +24,10 @@ export default function RootLayout({
     <ClerkProvider>
       <FirebaseSignIn />
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <Navbar />
+          {children}
+        HAHAHAEHAEWFHEAFHAEWHF BAOLLS</body>
  
       </html>
     </ClerkProvider>

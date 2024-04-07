@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
@@ -10,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import "../app/globals.css";
+//import "../app/globals.css";
 
 
 ChartJS.register(
@@ -45,7 +46,7 @@ interface ChartData {
 }
 
 export default function AirQualityPage() {
-  const [cityName, setCityName] = useState("Beijing");
+  const [cityName, setCityName] = useState("Dublin");
   const [tempCityName, setTempCityName] = useState("");
   const [overallAQI, setOverallAQI] = useState<number | undefined>(undefined);
   const [chartData, setChartData] = useState<ChartData>({
