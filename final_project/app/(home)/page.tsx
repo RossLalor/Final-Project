@@ -20,14 +20,14 @@ export default function Home() {
   }
   return (
     <>
-    <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')] relative">
+    <main className=" min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')] relative">
       {/* Ensure the UserButton is clickable and on top of all other elements */}
       <div className="absolute top-0 right-0 p-4 z-10">
         <UserButton afterSignOutUrl="/sign-out" />
       </div>
 
       {/* The rest of the page content with a lower z-index to ensure it's under the UserButton */}
-      <div className="backdrop-blur-[3px] min-h-screen z-0">
+      <div className="glass backdrop-blur-[3px] min-h-screen z-0">
         <div className="flex justify-center py-4">
           <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white">
             Leccy cars innit ®️

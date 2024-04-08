@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import Navbar from './components/Navbar';
 import './globals.css'
 import FirebaseSignIn from './FirebaseSignIn.client'; // Make sure this is the correct path
+import Footer from './components/footer';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,7 +28,7 @@ export default function RootLayout({
         <body>
           <Navbar />
           {children}
-        HAHAHAEHAEWFHEAFHAEWHF BAOLLS</body>
+          <Footer></Footer></body>
  
       </html>
     </ClerkProvider>
