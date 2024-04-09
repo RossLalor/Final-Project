@@ -61,7 +61,7 @@ export default function Home() {
               {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <Link href={`/signin`}>Sign In</Link>
+              <Link href={`/userPage`}>Sign In</Link>
             </div>
           </div>
         </div>
