@@ -21,18 +21,17 @@ export default function Home() {
   return (
     <>
     <main className=" min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')] relative">
-      {/* Ensure the UserButton is clickable and on top of all other elements */}
-      <div className="absolute top-0 right-0 p-4 z-10">
-        <UserButton afterSignOutUrl="/sign-out" />
-      </div>
+
 
       {/* The rest of the page content with a lower z-index to ensure it's under the UserButton */}
       <div className="glass backdrop-blur-[3px] min-h-screen z-0">
-        <div className="flex justify-center py-4">
-          <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white">
-            Leccy cars innit ®️
+        <div className="flex justify-center center py-4">
+          <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-2 px-4 max-w-4xl bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-center rounded-lg">
+            <div className=" bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">Leccy Cars</div>  
+            <div className="drop-shadow-lg text-xl py-2 px-2 max-w-4xl text-white">A site dedicated to informing people about electric cars</div>
           </h1>
         </div>
+ 
         
 
         <div className="flex justify-center py-10">
@@ -62,7 +61,7 @@ export default function Home() {
               {/* <button>aaa</button> */}
             </div>
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-center w-full rounded-full">
-              <Link href={`/SignIn`}>Sign In</Link>
+              <Link href={`/signin`}>Sign In</Link>
             </div>
           </div>
         </div>

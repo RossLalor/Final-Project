@@ -17,7 +17,7 @@ const FirebaseSignIn = () => {
           if (token) {
             const auth = getAuth();
             await signInWithCustomToken(auth, token);
-            console.log('Signed in with Firebase thank fuck');
+            console.log('Signed in with Firebase');
             // User is now signed in to Firebase, you can perform any post sign-in actions here
           } else {
             console.error('Token is null');

@@ -3,17 +3,17 @@ import { UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-blue-500 from-90% to-orange-700 p-6">
 
-      <div className="text-sm lg:flex-grow">
+      <div className="flex gap-5">
         {/* Corrected Link usage */}
         <div className="absolute inset-y-5 right-5"><UserButton /></div>
-        <Link href="signin" >Sign-in
+        <Link href="/" >Home
         </Link>
-        <Link href="/about">ARSE
+        <div>
+        <Link className="hover: grow" href="/about">ARSE
         </Link>
-
-        {/* Add more links as needed */}
+        </div>
       </div>
     </nav>
   );

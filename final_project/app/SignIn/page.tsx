@@ -1,15 +1,24 @@
+"use client";
 import Image from "next/image";
 //import "../app/globals.css";
+import { useUser } from "@clerk/clerk-react";
+import Greetings  from "../components/Mornin";
 
 
 export default function Home() {
+
+  const { isSignedIn, user, isLoaded } = useUser();
+
+  if (isSignedIn) {
   return (
     <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')]">
       <div className="backdrop-blur-[3px] min-h-screen">
         <div className="flex justify-center py-4">
-          <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white">
-            Leccy cars innit ®️
+          <div>
+          <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white text-center">
+            <div><Greetings /> {user.fullName}!</div>
           </h1>
+          </div>
         </div>
 
         <div className="flex justify-center py-10">
@@ -74,4 +83,5 @@ export default function Home() {
       </div>
     </main>
   );
+  }
 }
