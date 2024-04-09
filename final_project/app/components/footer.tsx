@@ -9,8 +9,8 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-2">Navigation</h3>
             <ul className="list-none">
               <li className="mb-1 "><Link href="/"><span className="text-white hover:text-gray-300 cursor-pointer">Home</span></Link></li>
+              <li className="mb-1"><Link href="/charts"><span className="text-white hover:text-gray-300 cursor-pointer">Charts</span></Link></li>
               <li className="mb-1"><Link href="/about"><span className="text-white hover:text-gray-300 cursor-pointer">About</span></Link></li>
-              <li className="mb-1"><Link href="/contact"><span className="text-white hover:text-gray-300 cursor-pointer">Contact</span></Link></li>
             </ul>
           </div>
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
@@ -23,6 +23,7 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h3 className="font-bold text-lg mb-2">Contact</h3>
             <p className="mb-1">Email: Carpathia808@gmail.com</p>
+            <p className="mb-1">Student email: B00137935@outlook.com</p>
           </div>
         </div>
         <div className="border-t border-gray-700 my-6"></div>
