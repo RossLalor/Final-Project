@@ -11,7 +11,7 @@ export default function Home() {
 
   if (isSignedIn) {
   return (
-    <main className="min-h-screen min-w-screen bg-cover bg-[url('../images/background.svg')]">
+    <main className="min-h-screen min-w-screen bg-cover bg-slate-900">
       <div className="backdrop-blur-[3px] min-h-screen">
         <div className="flex justify-center py-4">
           <div>

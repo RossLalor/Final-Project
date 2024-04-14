@@ -1,23 +1,32 @@
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
+import { IoHomeSharp } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center h-18 justify-between flex-wrap bg-gradient-to-r from-blue-500 from-90% to-orange-700 p-6">
+    <nav className="flex items-center justify-between bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 p-6">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
+        {/* Place for a logo or title if needed */}
+      </div>
+      <div className="flex gap-8 text-white text-xl">
+        <Link href="/">
+          <div className="hover:text-gray-300 flex-row flex transition duration-300 cursor-pointer left-10 text-3xl absolute"><div><IoHomeSharp /></div><div className="px-4">Leccy Cars</div></div>
+        </Link>
+        <Link href="/charts">
+          <div className="hover:text-gray-300 transition duration-300 cursor-pointer">Charts</div>
+        </Link>
+        <Link href="/about">
+          <div className="hover:text-gray-300 transition duration-300 cursor-pointer">About</div>
+        </Link>
 
-      <div className="flex gap-5">
-        {/* Corrected Link usage */}
-        <div className="absolute inset-y-5 right-5"><UserButton /></div>
-        <Link href="/" >Home
+        <Link href="/userPage">
+          <div className="hover:text-gray-300 transition duration-300 cursor-pointer">User Page</div>
         </Link>
-        <div>
-        <Link className="hover: hover:text-neon-green duration-300" href="/charts">Charts
-        </Link>
+        
+        <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
+          <UserButton />
         </div>
-        <div>
-        <Link className="hover: hover:text-neon-green duration-300" href="/about">About
-        </Link>
-        </div>
+
       </div>
     </nav>
   );

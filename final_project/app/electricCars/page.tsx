@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-900 text-white">
+    <main className="min-h-screen bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-10">
         <header className="text-center">
           <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
@@ -16,10 +16,29 @@ export default function Home() {
 
         <section className="mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1 */}
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold mb-2">SDG GOAL 7</h2>
               <p className="text-gray-400">
                 Sustainable Development Goal 7 aims to ensure access to affordable, reliable, sustainable, and modern energy for all. It is crucial for economic development, poverty alleviation, and the wellbeing of people globally.
+              </p>
+              <div className="mt-4 flex justify-center">
+                <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/images/wuh.png"
+                    alt="Sustainable Energy"
+                    width={192}
+                    height={192}
+                    objectFit="cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-semibold mb-2">SDG GOAL 12</h2>
+              <p className="text-gray-400">
+                SDG Goal 12 focuses on ensuring sustainable consumption and production patterns. It emphasizes the importance of resource efficiency, reducing waste generation, and promoting sustainable practices.
               </p>
               <div className="mt-4 flex justify-center">
                 <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center">
