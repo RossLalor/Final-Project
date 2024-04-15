@@ -32,6 +32,8 @@ export default function SignUp() {
         const userData = {
           name: user.firstName,
           email: user.emailAddresses[0].emailAddress,
+          age: 420,
+          winkies: "very, very long",
         };
 
         const userDocRef = doc(db, "users", userId); // Use Clerk user ID as the document ID

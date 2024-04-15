@@ -20,17 +20,14 @@ export default function Home() {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold mb-2">SDG GOAL 7</h2>
               <p className="text-gray-400">
-                Sustainable Development Goal 7 aims to ensure access to affordable, reliable, sustainable, and modern energy for all. It is crucial for economic development, poverty alleviation, and the wellbeing of people globally.
+                Sustainable Development Goal 7 aims to ensure access to
+                affordable, reliable, sustainable, and modern energy for all. It
+                is crucial for economic development, poverty alleviation, and
+                the wellbeing of people globally.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/images/wuh.png"
-                    alt="Sustainable Energy"
-                    width={192}
-                    height={192}
-                    objectFit="cover"
-                  />
+                <div className="w-96 h-48 bg-gray-700 rounded flex items-center justify-center overflow-hidden ">
+                  <div className="inline-block rounded-xl sm:text-[3.5rem] px-32 py-32 bg-[url('../images/wuh.png')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
                 </div>
               </div>
             </div>
@@ -38,10 +35,14 @@ export default function Home() {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold mb-2">SDG GOAL 12</h2>
               <p className="text-gray-400">
-                SDG Goal 12 focuses on ensuring sustainable consumption and production patterns. It emphasizes the importance of resource efficiency, reducing waste generation, and promoting sustainable practices.
+                SDG Goal 12 focuses on ensuring sustainable consumption and
+                production patterns. It emphasizes the importance of resource
+                efficiency, reducing waste generation, and promoting sustainable
+                practices.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center">
+                <div className="w-48 h-48 bg-gray-700 flex items-center justify-center overflow-hidden ">
+                  <div className="inline-block rounded-xl sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG12.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
                 </div>
               </div>
             </div>
@@ -49,11 +50,13 @@ export default function Home() {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold mb-2">SDG GOAL 13</h2>
               <p className="text-gray-400">
-                SDG Goal 13 focuses on taking urgent action to combat climate change and its impacts. It highlights the need for resilience, adaptive capacity, and integrating climate change measures into policies and planning.
+                SDG Goal 13 focuses on taking urgent action to combat climate
+                change and its impacts. It highlights the need for resilience,
+                adaptive capacity, and integrating climate change measures into
+                policies and planning.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center">
-                </div>
+                <div className="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center"></div>
               </div>
             </div>
           </div>
