@@ -18,7 +18,7 @@ export default function Home() {
                   What is this site about?
                 </div>
                 <p className="text-gray-400 mt-2">
-                  This site aims to answer a question which doesn't seem to have a definitive answer: "Are electric cars really better for the environment than petrol cars? Also, should you buy one?" The answers to these questions will be explored using research data, ai, information the author has gathered and information that fellow users have left about their experiences with their cars.                
+                  This site aims to answer a question which doesn&apos;t seem to have a definitive answer: Are electric cars really better for the environment than petrol cars? Also, should you buy one? The answers to these questions will be explored using research data, ai, information the author has gathered and information that fellow users have left about their experiences with their cars.                
                 </p>
               </div>
 
