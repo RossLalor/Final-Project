@@ -5,8 +5,10 @@ import Clerk from "@clerk/clerk-js";
 import { SignIn } from "@clerk/nextjs";
 import Navbar from "../components/Navbar";
 import { collection, addDoc } from "firebase/firestore";
-
-
+import { IoBarChart } from "react-icons/io5";
+import { HiLightningBolt } from "react-icons/hi";
+import { FaBook } from "react-icons/fa";
+import { HiQuestionMarkCircle } from "react-icons/hi";
 
 export default function Home() {
   // add item to database
@@ -36,7 +38,10 @@ export default function Home() {
                 <Link href={`/electricCars`}>
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
-                      Electric Cars
+                      <div className="flex flex-inline gap-1">
+                        <HiLightningBolt />
+                        SDG Page
+                      </div>
                     </div>
 
                     <p className="text-gray-400 mt-2">
@@ -48,10 +53,13 @@ export default function Home() {
                 <Link href={`/charts`}>
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
-                      Chart Page
+                      <div className="flex flex-inline gap-1">
+                        <IoBarChart />
+                        Chart Page
+                      </div>
                     </div>
                     <p className="text-gray-400 mt-2">
-                      Explore various charts related to electric cars.
+                      A page dedicated to charts and graphs.
                     </p>
                   </div>
                 </Link>
@@ -59,7 +67,9 @@ export default function Home() {
                 <Link href={`/userPage`}>
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
-                      Diary Page
+                      <div className="flex flex-inline gap-1">
+                        <FaBook /> Diary Page
+                      </div>
                     </div>
                     <p className="text-gray-400 mt-2">
                       Your user-specific homepage.
@@ -70,7 +80,10 @@ export default function Home() {
                 <Link href={`/about`}>
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
-                      About Page
+                      <div className="flex flex-inline gap-1">
+                        <HiQuestionMarkCircle />
+                        About Page
+                      </div>
                     </div>
 
                     <p className="text-gray-400 mt-2">

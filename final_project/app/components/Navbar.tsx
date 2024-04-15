@@ -4,7 +4,8 @@ import { IoHomeSharp } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 p-6">
+    <div className="px-4 py-4 bg-slate-900">
+    <nav className="flex items-center rounded justify-between bg-gradient-to-r from-green-600 via-blue-400 to-blue-600 p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         {/* Place for a logo or title if needed */}
       </div>
@@ -29,6 +30,7 @@ const Navbar = () => {
 
       </div>
     </nav>
+  </div>
   );
 };
 
