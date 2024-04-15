@@ -61,7 +61,7 @@ const FirebaseSignIn = () => {
     };
 
     signInWithFirebase();
-  }, [isSignedIn, getToken]);
+  }, [isSignedIn, getToken, user?.emailAddresses, user?.firstName, user?.id]);
 
   // This component doesn't render anything, but you could return a spinner or any other
   // indicator of the sign-in process if desired.
