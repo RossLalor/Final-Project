@@ -25,8 +25,8 @@ export default function Home() {
                 the wellbeing of people globally.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 flex items-center justify-center overflow-hidden ">
-                  <div className="inline-block rounded-xl sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG7.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
+                <div className="w-48 h-48 bg-gray-700 flex rounded items-center justify-center overflow-hidden ">
+                  <div className="inline-block sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG7.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
                 </div>
               </div>
             </div>
@@ -40,8 +40,8 @@ export default function Home() {
                 practices.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 flex items-center justify-center overflow-hidden ">
-                  <div className="inline-block rounded-xl sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG12.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
+                <div className="w-48 h-48 bg-gray-700 rounded flex items-center justify-center overflow-hidden ">
+                  <div className="inline-block sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG12.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
                 </div>
               </div>
             </div>
@@ -55,8 +55,8 @@ export default function Home() {
                 policies and planning.
               </p>
               <div className="mt-4 flex justify-center">
-                <div className="w-48 h-48 bg-gray-700 flex items-center justify-center overflow-hidden ">
-                  <div className="inline-block rounded-xl sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG13.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
+                <div className="w-48 h-48 bg-gray-700 rounded flex items-center justify-center overflow-hidden ">
+                  <div className="inline-block sm:text-[3.5rem] w-full h-full bg-[url('../images/SDG13.svg')] bg-cover transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"></div>
                 </div>
               </div>
             </div>
