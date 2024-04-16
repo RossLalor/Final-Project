@@ -7,7 +7,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-10">
         <header className="text-center">
           <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-400 to-blue-600">
-            Leccy Cars
+            SDG Goals
           </h1>
         </header>
 

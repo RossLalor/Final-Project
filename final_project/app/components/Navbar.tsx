@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="hover:text-gray-300 flex-row flex transition duration-300 cursor-pointer left-10 text-3xl absolute"><div><IoHomeSharp /></div><div className="px-4">Leccy Cars</div></div>
         </Link>
         <Link href="/charts">
-          <div className="hover:text-gray-300 transition duration-300 cursor-pointer">Charts</div>
+          <div className="hover:text-gray-300 transition duration-300 cursor-pointer">Air Quality Measuring</div>
         </Link>
 
         <Link href="/electricCars">

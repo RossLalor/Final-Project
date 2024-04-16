@@ -44,10 +44,9 @@ export default function Home() {
 
           <div className="flex justify-center py-4">
             <div>
-              <h1 className="backdrop-blur-md bg-white/10 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white text-center">
-                <div>
-                  {/* Assuming Greetings is a component that takes no props */}
-                  Greetings, {user?.firstName}
+              <h1 className="backdrop-blur-md rounded-3xl bg-slate-800 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white text-center">
+                <div className="justify-center flex">
+                  Greetings, {user?.firstName} <div className="px-4"><img className="rounded-3xl w-24 h-24justify-center flex "  src={user.imageUrl} alt="user image" /></div>
                 </div>
               </h1>
             </div>

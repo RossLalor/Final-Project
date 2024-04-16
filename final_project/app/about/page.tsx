@@ -6,7 +6,7 @@ export default function Home() {
         <div className="container mx-auto px-18 py-10">
           <div className="flex justify-center py-4">
             <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
-              Leccy Cars
+              About Leccy Cars
             </h1>
           </div>
 
