@@ -145,6 +145,7 @@ export default function AirQualityPage() {
               value={tempCityName}
               onChange={handleCityNameChange}
               placeholder="Enter City Name"
+              maxLength={30}
               className="p-2 bg-gray-700 text-white rounded-md"
             />
             <button
