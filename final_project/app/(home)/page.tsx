@@ -9,6 +9,8 @@ import { IoBarChart } from "react-icons/io5";
 import { HiLightningBolt } from "react-icons/hi";
 import { FaBook } from "react-icons/fa";
 import { HiQuestionMarkCircle } from "react-icons/hi";
+import { TbListDetails } from "react-icons/tb";
+
 
 export default function Home() {
   // add item to database
@@ -24,7 +26,7 @@ export default function Home() {
       <main className="min-h-screen bg-slate-900 text-white">
         <div className="container mx-auto px-4 py-10">
           <header className="text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+            <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
               Leccy Cars
             </h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-4">
@@ -45,7 +47,7 @@ export default function Home() {
                     </div>
 
                     <p className="text-gray-400 mt-2">
-                      Information about Electric Cars.
+                      Information about SDG Goals and which ones apply to this site.
                     </p>
                   </div>
                 </Link>
@@ -60,6 +62,20 @@ export default function Home() {
                     </div>
                     <p className="text-gray-400 mt-2">
                       A page dedicated to charts and graphs.
+                    </p>
+                  </div>
+                </Link>
+
+                <Link href={`/Research`}>
+                  <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
+                    <div className="font-semibold cursor-pointer">
+                      <div className="flex flex-inline gap-1">
+                      <TbListDetails />
+                        Research Page
+                      </div>
+                    </div>
+                    <p className="text-gray-400 mt-2">
+                      Technical details of emissions and vehicles.
                     </p>
                   </div>
                 </Link>

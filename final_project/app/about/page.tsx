@@ -3,9 +3,9 @@ export default function Home() {
     <>
       <main className="min-h-screen bg-slate-900 text-white">
         {/* Adjusted container class to center and take up 75% of the screen width */}
-        <div className="container mx-auto px-4 py-10 w-full max-w-[75%]">
+        <div className="container mx-auto px-18 py-10">
           <div className="flex justify-center py-4">
-            <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+            <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
               Leccy Cars
             </h1>
           </div>
