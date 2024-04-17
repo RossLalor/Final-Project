@@ -57,11 +57,11 @@ export default function Home() {
                     <div className="font-semibold cursor-pointer">
                       <div className="flex flex-inline gap-1">
                         <IoBarChart />
-                        Chart Page
+                        Air Quality Index Page
                       </div>
                     </div>
                     <p className="text-gray-400 mt-2">
-                      A page dedicated to charts and graphs.
+                      Wanna see how healthy the air quality is in a city near you? Check it here!
                     </p>
                   </div>
                 </Link>

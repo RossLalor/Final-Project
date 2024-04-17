@@ -21,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export default function SignUp() {
+export default function dingleDang() {
   const { user } = useUser();
 
   React.useEffect(() => {
@@ -32,15 +32,14 @@ export default function SignUp() {
         const userData = {
           name: user.firstName,
           email: user.emailAddresses[0].emailAddress,
-          age: 420,
-          winkies: "very, very long",
+          age: 144,
         };
 
         const userDocRef = doc(db, "users", userId); // Use Clerk user ID as the document ID
 
         try {
-          await setDoc(userDocRef, userData, { merge: true }); // Use merge to not overwrite existing fields
-          console.log("Document written with ID: ", userId);
+          await setDoc(userDocRef, userData, { merge: false }); // Use merge to not overwrite existing fields
+          console.log("Document written with ID: dineldongies ", userId);
         } catch (e) {
           console.error("Error adding document: ", e);
         }
@@ -53,3 +52,4 @@ export default function SignUp() {
   // Return your component's JSX or null if not needed
   return null;
 }
+

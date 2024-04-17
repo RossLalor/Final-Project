@@ -33,7 +33,7 @@ const FirebaseSignIn = () => {
           if (token) {
             const auth = getAuth();
             await signInWithCustomToken(auth, token);
-            console.log('Signed in with Firebase balls');
+            console.log('Signed in with Firebase');
             if (user?.id) {
               const userId = user.id; // Clerk user ID
               const userData = {
