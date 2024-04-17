@@ -11,7 +11,10 @@
   "dependencies": {
     "@clerk/clerk-js": "^4.65.5",
     "@clerk/nextjs": "^4.29.9",
+    "@google/model-viewer": "^3.4.0",
     "@nextui-org/react": "^2.2.10",
+    "@react-three/drei": "^9.105.4",
+    "@react-three/fiber": "^8.16.2",
     "axiom": "^0.1.6",
     "axios": "^1.6.7",
     "chart.js": "^4.4.1",
@@ -20,6 +23,7 @@
     "firebase": "^10.10.0",
     "next": "^13.5.3",
     "react": "^18.2.0",
+    "react-3d-viewer": "^1.0.12",
     "react-aria-components": "^1.1.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
