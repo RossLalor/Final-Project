@@ -21,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export default function dingleDang() {
+export default function DingleDang() {
   const { user } = useUser();
 
   React.useEffect(() => {
