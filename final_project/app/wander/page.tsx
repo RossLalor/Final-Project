@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
 function Model(props:any) {
-  const { scene } = useGLTF("/Car_engine.glb");
+  const { scene } = useGLTF("/car_engine.glb");
   return <primitive object={scene} {...props} />
 }
 
