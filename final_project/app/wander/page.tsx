@@ -9,10 +9,10 @@ function Model(props:any) {
 
 function App() {
   return (
-    <Canvas dpr={[1,2]} shadows camera={{ fov: 45 }} style={{"position": "absolute"}}>
+    <Canvas dpr={[1,2]} shadows camera={{ fov: 90 }} style={{"position": "absolute"}}>
       <color attach="background" args={["#101010"]} />
       <PresentationControls speed={1.5} global zoom={.5} polar={[-0.1, Math.PI / 4]}>
-        <Stage environment={"sunset"}>
+        <Stage environment={"warehouse"}>
           <Model scale={0.01} />
         </Stage>
       </PresentationControls>
