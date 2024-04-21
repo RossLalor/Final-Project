@@ -44,6 +44,12 @@ const Navbar = () => {
             </div>
           </Link>
 
+          <Link href="/wander">
+            <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
+              Model Viewer
+            </div>
+          </Link>
+
           <Link href="/about">
             <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
               About

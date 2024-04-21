@@ -145,7 +145,7 @@ export default function AirQualityPage() {
               value={tempCityName}
               onChange={handleCityNameChange}
               placeholder="Enter City Name"
-              maxLength={30}
+              maxLength={60}
               className="p-2 bg-gray-700 text-white rounded-md"
             />
             <button
@@ -157,12 +157,12 @@ export default function AirQualityPage() {
           </div>
         </div>
 
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg mt-8">
+        <div className="bg-gray-800 h-[60vh] p-6 rounded-lg shadow-lg mt-8">
           <Bar
             data={chartData}
             options={{
               responsive: true,
-              maintainAspectRatio: true,
+              maintainAspectRatio: false,
               plugins: {
                 legend: {
                   position: "top",

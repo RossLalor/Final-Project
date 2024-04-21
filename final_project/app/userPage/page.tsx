@@ -6,7 +6,6 @@ import dingleDang from "../firebaseAddData";
 import DongieWongies from "../components/firebaseAddData";
 import { GLTFModel, AmbientLight, DirectionLight } from "react-3d-viewer";
 
-// Define the shape of your form data using an interface
 
 export default function Home() {
   const { isSignedIn, user } = useUser();
@@ -30,17 +29,6 @@ export default function Home() {
                   </div>
                   <DongieWongies />
                 </div>
-                <GLTFModel src={modelPath}>
-                  <AmbientLight color={0xffffff} />
-                  <DirectionLight
-                    color={0xffffff}
-                    position={{ x: 100, y: 200, z: 100 }}
-                  />
-                  <DirectionLight
-                    color={0xff00ff}
-                    position={{ x: -100, y: 200, z: -100 }}
-                  />
-                </GLTFModel>
               </h1>
             </div>
           </div>
