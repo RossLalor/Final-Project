@@ -10,6 +10,8 @@ import { HiLightningBolt } from "react-icons/hi";
 import { FaBook } from "react-icons/fa";
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { TbListDetails } from "react-icons/tb";
+import { Tb3DCubeSphere } from "react-icons/tb";
+
 
 
 export default function Home() {
@@ -76,6 +78,20 @@ export default function Home() {
                     </div>
                     <p className="text-gray-400 mt-2">
                       Technical details of emissions and vehicles.
+                    </p>
+                  </div>
+                </Link>
+
+                <Link href={`/wander`}>
+                  <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
+                    <div className="font-semibold cursor-pointer">
+                      <div className="flex flex-inline gap-1">
+                      <Tb3DCubeSphere />
+                        3D Model Viewer
+                      </div>
+                    </div>
+                    <p className="text-gray-400 mt-2">
+                      3D models of various things (fast internet recommended)
                     </p>
                   </div>
                 </Link>

@@ -60,12 +60,20 @@ export default function DongieWongies() {
 
       try {
         const docRef = await addDoc(journeyCollectionRef, formData);
-        console.log("Journey document written with ID: ", docRef.id);
+        alert("Journey document written to database");
+        setFormData({
+          distance: "",
+          fuelType: "",
+          carUsed: "",
+          averageConsumption: "",
+        });
       } catch (error) {
         console.error("Error adding journey document: ", error);
+        alert("An error occured, please try again or contact the developer");
       }
     } else {
       console.error("No user ID found, cannot write to Firestore");
+      alert("No user ID found, cannot write to Firestore");
     }
   };
 
@@ -91,7 +99,7 @@ export default function DongieWongies() {
     addUserData();
   }, [user]);
 
-  // Return your component's JSX or null if not needed
+
   return (
     <div className="flex justify-center py-10">
       <div className="max-w-screen-lg mx-auto grid grid-cols-2 gap-3">
