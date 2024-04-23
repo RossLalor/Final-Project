@@ -4,8 +4,8 @@ import { useState, ChangeEvent } from "react";
 import Link from "next/link";
 import dingleDang from "../firebaseAddData";
 import DongieWongies from "../components/firebaseAddData";
+import JourneyDataDisplay from "../components/firebaseGetData";
 import { GLTFModel, AmbientLight, DirectionLight } from "react-3d-viewer";
-
 
 export default function Home() {
   const { isSignedIn, user } = useUser();
@@ -27,10 +27,12 @@ export default function Home() {
                       alt="user image"
                     />
                   </div>
-                  <DongieWongies />
                 </div>
               </h1>
+              <DongieWongies />
+              <JourneyDataDisplay />
             </div>
+
           </div>
         </div>
       </main>

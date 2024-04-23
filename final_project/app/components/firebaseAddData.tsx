@@ -101,8 +101,8 @@ export default function DongieWongies() {
 
 
   return (
-    <div className="flex justify-center py-10">
-      <div className="max-w-screen-lg mx-auto grid grid-cols-2 gap-3">
+    <div className="flex justify-center py-10 ">
+      <div className="w-full gap-3">
         <div className="p-4 bg-slate-800 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 text-white">
           <form onSubmit={handleSubmit}>
             <h2 className="text-white font-bold text-2xl mb-4">
@@ -116,11 +116,12 @@ export default function DongieWongies() {
                 Distance (km)
               </label>
               <input
-                type="number" // type="number" can be used for better input control, but kept as text for simplicity
+                type="number"
                 name="distance"
                 id="distance"
                 value={formData.distance}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               />
             </div>
@@ -136,6 +137,7 @@ export default function DongieWongies() {
                 id="fuelType"
                 value={formData.fuelType}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               >
                 <option value="">Select Fuel Type</option>
@@ -157,6 +159,7 @@ export default function DongieWongies() {
                 id="carUsed"
                 value={formData.carUsed}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               />
             </div>
@@ -168,11 +171,12 @@ export default function DongieWongies() {
                 Average Consumption (L/100km)
               </label>
               <input
-                type="number" // type="number" can be used for better input control, but kept as text for simplicity
+                type="number"
                 name="averageConsumption"
                 id="averageConsumption"
                 value={formData.averageConsumption}
                 onChange={handleChange}
+                required
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               />
             </div>
