@@ -116,7 +116,8 @@ export default function DongieWongies() {
                 Distance (km)
               </label>
               <input
-                type="number"
+                type="tel"
+                maxLength={6}
                 name="distance"
                 id="distance"
                 value={formData.distance}
@@ -155,6 +156,7 @@ export default function DongieWongies() {
               </label>
               <input
                 type="text"
+                maxLength={36}
                 name="carUsed"
                 id="carUsed"
                 value={formData.carUsed}
@@ -171,7 +173,8 @@ export default function DongieWongies() {
                 Average Consumption (L/100km)
               </label>
               <input
-                type="number"
+                type="tel"
+                maxLength={4}
                 name="averageConsumption"
                 id="averageConsumption"
                 value={formData.averageConsumption}
