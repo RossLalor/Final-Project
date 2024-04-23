@@ -41,6 +41,7 @@ export default function JourneyDataDisplay() {
     carUsed?: string;
     averageConsumption?: string;
     distance?: string;
+    fuelType?: string;
   }
 
   useEffect(() => {
@@ -120,6 +121,9 @@ return (
               </p>
               <p className="text-gray-300">
                 Distance: <span className="font-semibold">{journey.distance || 'N/A'}</span> km
+              </p>
+              <p className="text-gray-300">
+                Fuel type: <span className="font-semibold">{journey.fuelType || 'N/A'}</span>
               </p>
             </div>
             <div className="text-lg font-medium text-gray-200">

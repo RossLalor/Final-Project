@@ -28,6 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+
 // DongieWongies component
 export default function DongieWongies() {
   const { user } = useUser();
@@ -66,7 +67,9 @@ export default function DongieWongies() {
           fuelType: "",
           carUsed: "",
           averageConsumption: "",
-        });
+        });        
+        location.reload();
+        
       } catch (error) {
         console.error("Error adding journey document: ", error);
         alert("An error occured, please try again or contact the developer");
@@ -103,7 +106,7 @@ export default function DongieWongies() {
   return (
     <div className="flex justify-center py-10 ">
       <div className="w-full gap-3">
-        <div className="p-4 bg-slate-800 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 text-white">
+        <div className="p-4 bg-slate-800 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit}>
             <h2 className="text-white font-bold text-2xl mb-4">
               Your Journey Details
