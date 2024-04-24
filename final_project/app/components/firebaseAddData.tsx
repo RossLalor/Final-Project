@@ -183,7 +183,7 @@ export default function DongieWongies() {
                 htmlFor="averageConsumption"
                 className="block text-sm font-medium text-gray-300"
               >
-                Average Consumption ({formData.fuelType === "electric" ? "kWh/100km" : "L/100km"})
+                Average Consumption ({formData.fuelType === "Electric" ? "kWh/100km" : "l/100km"})
               </label>
               <input
                 type="tel"
