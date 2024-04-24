@@ -32,7 +32,6 @@ export default function AirQualityPage() {
     labels: [
       "CO2",
       "Carbon Monoxide",
-      "HC Emissions",
       "NOx Emissions",
       "HC + NOx Emissions",
       "Particulate Matter",
@@ -43,11 +42,10 @@ export default function AirQualityPage() {
         data: [0, 0.19, 0.047, 0.068, 0.04],
         backgroundColor: [
           "rgb(40, 180, 40)",
-          "rgb(80, 0, 0)",
-          "rgb(0, 80, 0)",
-          "rgb(0, 0, 80)",
-          "rgb(80, 20, 0)",
-          "rgb(142, 12, 55)",
+          "rgb(160, 0, 0)",
+          "rgb(40, 0, 160)",
+          "rgb(200, 100, 0)",
+          "rgb(200, 200, 0)",
         ],
         hoverOffset: 4,
       },
@@ -58,7 +56,6 @@ export default function AirQualityPage() {
     labels: [
       "CO2",
       "Carbon Monoxide",
-      "HC Emissions",
       "NOx Emissions",
       "HC + NOx Emissions",
       "Particulate Matter",
@@ -70,7 +67,6 @@ export default function AirQualityPage() {
         backgroundColor: [
           "rgb(40, 180, 40)",
           "rgb(0, 0, 0)",
-          "rgb(139, 0, 139)",
           "rgb(0, 0, 255)",
           "rgb(255, 69, 0)",
           "rgb(142, 12, 55)",

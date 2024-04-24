@@ -92,19 +92,19 @@ function modelPage() {
 
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
             <div className="w-full text-center">
-              <h2 className="text-xl font-semibold mb-2">Electric Motor</h2>
+              <h2 className="text-xl font-semibold mb-2">Internal Combustion Engine</h2>
               <div
                 className="text-gray-400 text-left mx-auto"
                 style={{ maxWidth: "600px" }}
               >
                 Key features and advantages of electric motors include:
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>High efficiency and reliability</li>
-                  <li>Lower operating costs due to fewer moving parts</li>
-                  <li>Environmentally friendly with zero emissions</li>
-                  <li>Quiet operation compared to combustion engines</li>
-                  <li>Instant torque and smooth acceleration</li>
-                  <li>Reduced maintenance needs</li>
+                  <li>Refuelling speeds are very quick</li>
+                  <li>Infrastructure is much more readily available</li>
+                  <li>Cheaper to buy</li>
+                  <li>More technicians available for repair for now</li>
+                  <li>The sound and emotion of a nice sounding engine</li>
+                  <li>Second hand market is much more populated and cheaper for now</li>
                   <li>
                     Versatility in various applications, from vehicles to
                     industrial machinery
@@ -129,6 +129,7 @@ function modelPage() {
                   <li>Quiet operation compared to combustion engines</li>
                   <li>Instant torque and smooth acceleration</li>
                   <li>Reduced maintenance needs</li>
+                  <li>Can recharge from home or anywhere there is a socket</li>
                   <li>
                     Versatility in various applications, from vehicles to
                     industrial machinery

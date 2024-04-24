@@ -14,6 +14,7 @@ interface FormData {
   fuelType: string;
   carUsed: string;
   averageConsumption: string;
+  dateAdded: Date;
 }
 
 const firebaseConfig = {
@@ -39,6 +40,7 @@ export default function DongieWongies() {
     fuelType: "",
     carUsed: "",
     averageConsumption: "",
+    dateAdded: new Date(),
   });
 
   // Handle change in form inputs
@@ -52,9 +54,16 @@ export default function DongieWongies() {
     }));
   };
 
+  
+
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const newData = {
+      ...formData,
+      dateAdded: new Date() // Capture the current date and time at submission
+    };
 
     if (user?.id) {
       const journeyCollectionRef = collection(db, "users", user.id, "journeys");
@@ -67,6 +76,7 @@ export default function DongieWongies() {
           fuelType: "",
           carUsed: "",
           averageConsumption: "",
+          dateAdded: new Date(),
         });        
         location.reload();
         
@@ -145,9 +155,9 @@ export default function DongieWongies() {
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               >
                 <option value="">Select Fuel Type</option>
-                <option value="electric">Electric</option>
-                <option value="petrol">Petrol</option>
-                <option value="diesel">Diesel</option>
+                <option value="Electric">Electric</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
               </select>
             </div>
             <div className="mb-4">
@@ -173,7 +183,7 @@ export default function DongieWongies() {
                 htmlFor="averageConsumption"
                 className="block text-sm font-medium text-gray-300"
               >
-                Average Consumption (L/100km)
+                Average Consumption ({formData.fuelType === "electric" ? "kWh/100km" : "L/100km"})
               </label>
               <input
                 type="tel"

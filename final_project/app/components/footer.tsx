@@ -20,12 +20,10 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-2">Social Media</h3>
             <ul className="list-none">
               <li className="mb-1"><span className="text-white hover:text-gray-300 cursor-pointer" onClick={() => window.open('https://github.com/RossLalor', '_blank')}>Github</span></li>
-              <li className="mb-1"><span className="text-white hover:text-gray-300 cursor-pointer" onClick={() => window.open('https://www.instagram.com/ross.lalor/', '_blank')}>Instagram</span></li>
             </ul>
           </div>
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h3 className="font-bold text-lg mb-2">Contact</h3>
-            <p className="mb-1">Email: Carpathia808@gmail.com</p>
             <p className="mb-1">Student email: B00137935@outlook.com</p>
           </div>
         </div>

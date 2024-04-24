@@ -15,6 +15,8 @@ import {
 import { initializeApp } from "firebase/app";
 import { useUser } from "@clerk/nextjs";
 import { QueryDocumentSnapshot } from "firebase/firestore";
+import { format } from "date-fns";
+import firebase from "firebase/compat/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSPoV9ip_Ti5qDbRb6l8kQmaarmunRB-A",
@@ -35,6 +37,8 @@ export default function JourneyDataDisplay() {
   const [lastVisible, setLastVisible] =
     useState<QueryDocumentSnapshot<DocumentData> | null>(null);
   const [page, setPage] = useState(0); // For pagination (to be added)
+  const [fuelCost, setFuelCost] = useState(""); // State to store the cost per liter
+  const [electricCost, setElectricCost] = useState(""); // State to store the cost per liter
 
   interface Journey {
     id: string;
@@ -42,6 +46,7 @@ export default function JourneyDataDisplay() {
     averageConsumption?: string;
     distance?: string;
     fuelType?: string;
+    dateAdded?: firebase.firestore.Timestamp;
   }
 
   useEffect(() => {
@@ -59,7 +64,7 @@ export default function JourneyDataDisplay() {
           ? baseQuery
           : query(
               journeyCollectionRef,
-              orderBy("createdAt", "desc"),
+              orderBy("dateAdded", "desc"),
               startAfter(lastVisible),
               limit(10)
             );
@@ -83,62 +88,140 @@ export default function JourneyDataDisplay() {
     };
 
     fetchJourneys();
-  }, [user?.id, page]); // Dependency array to run the effect when `user` or `page` changes
+  }, [user?.id, page]);
 
-  // Delete journey function
   const deleteJourney = async (journeyId: string) => {
     if (!user) {
       console.error("User is not defined");
-      return; // Exit the function if user is not defined
+      return;
     }
     const journeyDocRef = doc(db, "users", user.id, "journeys", journeyId);
     try {
       await deleteDoc(journeyDocRef);
-      setJourneys(journeys.filter((journey) => journey.id !== journeyId)); // Update the state to reflect the deletion
+      setJourneys(journeys.filter((journey) => journey.id !== journeyId));
       console.log("Journey deleted:", journeyId);
     } catch (error) {
       console.error("Error deleting journey: ", error);
     }
-};
-return (
-  <div className="p-4 bg-slate-800 rounded-lg shadow-md max-w-4xl mx-auto">
-    <h2 className="text-white font-bold text-2xl mb-4">Journey History / Information</h2>
-    <div className="space-y-4">
-      {journeys.map(journey => {
-        const totalFuelUsed = journey.averageConsumption && journey.distance 
-          ? (parseFloat(journey.averageConsumption) / 100) * parseFloat(journey.distance)
-          : 0;
+  };
 
-        return (
-          <div
-            className="relative flex justify-between items-center p-4 bg-gray-700 rounded-lg shadow group"
-            key={journey.id}
-          >
-            <div>
-              <h3 className="text-xl font-medium text-gray-100">{journey.carUsed || 'Unknown Car'}</h3>
-              <p className="text-gray-300">
-                Consumption: <span className="font-semibold">{journey.averageConsumption || 'N/A'}</span> L/100km
-              </p>
-              <p className="text-gray-300">
-                Distance: <span className="font-semibold">{journey.distance || 'N/A'}</span> km
-              </p>
-              <p className="text-gray-300">
-                Fuel type: <span className="font-semibold">{journey.fuelType || 'N/A'}</span>
-              </p>
-            </div>
-            <div className="text-lg font-medium text-gray-200">
-              <p>{totalFuelUsed.toFixed(2)} L</p>
-            </div>
-            <button
-              className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity  text-white font-bold py-2 px-4 rounded"
-              onClick={() => deleteJourney(journey.id)}
+  return (
+    <div className="p-4 bg-slate-800 rounded-lg shadow-md max-w-4xl mx-auto">
+      <h2 className="text-white font-bold text-2xl mb-4">
+        Journey History / Information
+      </h2>
+      <div className="flex justify-between gap-4 mb-4">
+        <input
+          type="number"
+          value={fuelCost}
+          onChange={(e) => setFuelCost(e.target.value)}
+          placeholder="Enter cost per liter of fuel"
+          className="w-full p-2 bg-gray-700 text-white rounded"
+        />
+        <input
+          type="number"
+          value={electricCost}
+          onChange={(e) => setElectricCost(e.target.value)}
+          placeholder="Enter cost per kWh of electricity"
+          className="w-full p-2 bg-gray-700 text-white rounded"
+        />
+      </div>
+      <div className="space-y-4">
+        {journeys.map((journey) => {
+          let totalFuelOrEnergyUsed;
+          let displayCost;
+
+          if (journey.fuelType === "electric") {
+            totalFuelOrEnergyUsed =
+              journey.averageConsumption && journey.distance
+                ? `${(
+                    (parseFloat(journey.averageConsumption) *
+                      parseFloat(journey.distance)) /
+                    100
+                  ).toFixed(2)} kWh`
+                : "0 kWh";
+            displayCost =
+              journey.averageConsumption && electricCost && journey.distance
+                ? `€${(
+                    ((parseFloat(journey.averageConsumption) *
+                      parseFloat(journey.distance)) /
+                      100) *
+                    parseFloat(electricCost)
+                  ).toFixed(2)}`
+                : null;
+          } else {
+            totalFuelOrEnergyUsed =
+              journey.averageConsumption && journey.distance
+                ? `${(
+                    (parseFloat(journey.averageConsumption) / 100) *
+                    parseFloat(journey.distance)
+                  ).toFixed(2)} L`
+                : "0 L";
+            displayCost =
+              journey.averageConsumption && fuelCost && journey.distance
+                ? `€${(
+                    (parseFloat(journey.averageConsumption) / 100) *
+                    parseFloat(journey.distance) *
+                    parseFloat(fuelCost)
+                  ).toFixed(2)}`
+                : null;
+          }
+
+          return (
+            <div
+              className="relative flex justify-between items-center p-4 bg-gray-700 rounded-lg shadow group"
+              key={journey.id}
             >
-              <IoTrashOutline />
-            </button>
-          </div>
-        );
-      })}
+              <div>
+                <h3 className="text-xl font-medium text-gray-100">
+                  {journey.carUsed || "Unknown Car"}
+                </h3>
+                <p className="text-gray-300 font-semibold">
+                  Consumption:{" "}
+                  <span className="font-normal">
+                    {journey.averageConsumption || "N/A"}
+                  </span>{" "}<span className="font-normal">
+                  ({journey.fuelType === "electric" ? "kWh/100km" : "l/100km"})
+                  </span>
+                </p>
+                <p className="text-gray-300 font-semibold">
+                  Distance:{" "}
+                  <span className="font-normal">
+                    {journey.distance || "N/A"}
+                  </span>{" "}<span className="font-normal">
+                  km
+                  </span>
+                </p>
+                <p className="text-gray-300 font-semibold">
+                  Fuel type:{" "}
+                  <span className="font-normal">
+                    {journey.fuelType || "N/A"}
+                  </span>
+                </p>
+
+                <p className="text-gray-300 font-semibold">
+                  Date Added:{" "}
+                  <span className="font-normal">
+                    {journey.dateAdded
+                      ? format(journey.dateAdded.toDate(), "PPpp")
+                      : "N/A"}
+                  </span>
+                </p>
+              </div>
+              <div className="text-lg font-medium text-gray-200">
+                <p>{totalFuelOrEnergyUsed}</p>
+                {displayCost && <p>Cost: {displayCost}</p>}
+              </div>
+              <button
+                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold py-2 px-4 rounded"
+                onClick={() => deleteJourney(journey.id)}
+              >
+                <IoTrashOutline />
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
 }

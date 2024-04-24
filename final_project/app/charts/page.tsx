@@ -69,6 +69,22 @@ export default function AirQualityPage() {
 
       setOverallAQI(data.overall_aqi);
 
+      const changeColor = (aqi: number) => {
+        if (aqi <= 50) {
+          return "#00ff00";
+        } else if (aqi <= 100) {
+          return "#ffff00";
+        } else if (aqi <= 150) {
+          return "#ff7e00";
+        } else if (aqi <= 200) {
+          return "#ff0000";
+        } else if (aqi <= 300) {
+          return "#8b00ff";
+        } else {
+          return "#7e0023"; // just incase, although it's impossible for this to be reached
+        }
+      }
+
       const pollutants = Object.entries(data).reduce(
         (acc: { [key: string]: Pollutant }, [key, value]) => {
           if (value && typeof value === "object" && key !== "overall_aqi") {
@@ -112,7 +128,7 @@ export default function AirQualityPage() {
           {
             label: "AQI",
             data: Object.values(pollutants).map((p) => p.aqi),
-            backgroundColor: "rgba(255, 0, 0, 0.9)",
+            backgroundColor: changeColor(data.overall_aqi),
           },
         ],
       });
@@ -129,11 +145,13 @@ export default function AirQualityPage() {
     setCityName(tempCityName);
   };
 
+
+
   return (
     <main className="min-h-screen bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-10">
         <div className="text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+          <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 py-4">
             Air Quality in {cityName} (live data from API-Ninjas.com)
           </h1>
           <p className="text-xl sm:text-2xl text-gray-300 mt-4">
