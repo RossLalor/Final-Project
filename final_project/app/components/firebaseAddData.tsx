@@ -31,7 +31,7 @@ const db = getFirestore(app);
 
 
 // DongieWongies component
-export default function DongieWongies() {
+export default function DongieWongies({ onAddSuccess }: { onAddSuccess: () => void }) {
   const { user } = useUser();
 
   // State for form data
@@ -77,8 +77,8 @@ export default function DongieWongies() {
           carUsed: "",
           averageConsumption: "",
           dateAdded: new Date(),
-        });        
-        location.reload();
+        });
+        onAddSuccess();  // Call the passed function to notify of success        
         
       } catch (error) {
         console.error("Error adding journey document: ", error);
@@ -196,12 +196,14 @@ export default function DongieWongies() {
                 className="mt-1 block w-full rounded-md bg-gray-700 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0"
               />
             </div>
+            <div className="flex justify-center ">
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg font-bold text-white"
+              className="px-4 py-2 bg-slate-500 hover:bg-slate-400 rounded-lg font-bold text-white w-[24vh] transition: hover:scale-105 duration-300"
             >
               Submit
             </button>
+            </div>
           </form>
         </div>
       </div>

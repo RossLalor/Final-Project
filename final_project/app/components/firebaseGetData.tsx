@@ -34,11 +34,21 @@ const db = getFirestore(app);
 export default function JourneyDataDisplay() {
   const { user } = useUser();
   const [journeys, setJourneys] = useState<Journey[]>([]);
+  const [firstVisible, setFirstVisible] =
+    useState<QueryDocumentSnapshot<DocumentData> | null>(null);
   const [lastVisible, setLastVisible] =
     useState<QueryDocumentSnapshot<DocumentData> | null>(null);
   const [page, setPage] = useState(0); // For pagination (to be added)
   const [fuelCost, setFuelCost] = useState(""); // State to store the cost per liter
   const [electricCost, setElectricCost] = useState(""); // State to store the cost per liter
+  const [refetchTrigger, setRefetchTrigger] = useState(0);
+  const [hasMorePages, setHasMorePages] = useState(true); // New state to manage page availability
+
+
+ // Initialize docSnaps as an empty array
+  const [pageSnapshots, setPageSnapshots] = useState<
+    QueryDocumentSnapshot<DocumentData>[]
+  >([]);
 
   interface Journey {
     id: string;
@@ -54,33 +64,45 @@ export default function JourneyDataDisplay() {
       if (!user?.id) return;
 
       const journeyCollectionRef = collection(db, "users", user.id, "journeys");
-      const baseQuery = query(
-        journeyCollectionRef,
-        orderBy("averageConsumption"),
-        limit(10)
-      );
-      let paginatedQuery =
-        page === 0
-          ? baseQuery
-          : query(
-              journeyCollectionRef,
-              orderBy("dateAdded", "desc"),
-              startAfter(lastVisible),
-              limit(10)
-            );
+      let paginatedQuery;
+
+      if (page === 0) {
+        paginatedQuery = query(
+          journeyCollectionRef,
+          orderBy("dateAdded", "desc"),
+          limit(5)
+        );
+      } else {
+        const snap = pageSnapshots[page];
+        if (snap) {
+          paginatedQuery = query(
+            journeyCollectionRef,
+            orderBy("dateAdded", "desc"),
+            startAfter(snap),
+            limit(5)
+          );
+        }
+      }
 
       try {
-        const querySnapshot = await getDocs(paginatedQuery);
-        if (!querySnapshot.empty) {
-          const fetchedJourneys = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setJourneys(fetchedJourneys);
-          setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
-          console.log("Fetched journeys:", fetchedJourneys);
-        } else {
-          console.log("No more journeys to fetch");
+        if (paginatedQuery) {
+          const querySnapshot = await getDocs(paginatedQuery);
+          if (!querySnapshot.empty) {
+            setJourneys(
+              querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+            );
+            setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
+            setFirstVisible(querySnapshot.docs[0]);
+            // Maintain the snapshot history for pagination
+            const newSnapshots = [...pageSnapshots];
+            newSnapshots[page + 1] =
+              querySnapshot.docs[querySnapshot.docs.length - 1];
+              setPageSnapshots(newSnapshots);
+              // Determine if there are more pages
+              setHasMorePages(querySnapshot.docs.length === 5);
+            } else {
+              setHasMorePages(false); // No more data to fetch
+            }
         }
       } catch (error) {
         console.error("Error fetching journeys: ", error);
@@ -88,7 +110,7 @@ export default function JourneyDataDisplay() {
     };
 
     fetchJourneys();
-  }, [user?.id, page]);
+  }, [user?.id, page, refetchTrigger]); // Added refetchTrigger as a dependency
 
   const deleteJourney = async (journeyId: string) => {
     if (!user) {
@@ -98,13 +120,21 @@ export default function JourneyDataDisplay() {
     const journeyDocRef = doc(db, "users", user.id, "journeys", journeyId);
     try {
       await deleteDoc(journeyDocRef);
-      setJourneys(journeys.filter((journey) => journey.id !== journeyId));
       console.log("Journey deleted:", journeyId);
+      setRefetchTrigger(prev => prev + 1); // Trigger a refetch
     } catch (error) {
       console.error("Error deleting journey: ", error);
     }
   };
+  const nextPage = () => {
+    setPage((prev) => prev + 1);
+  };
 
+  const prevPage = () => {
+    if (page > 0) {
+      setPage((prev) => prev - 1);
+    }
+  };
   return (
     <div className="p-4 bg-slate-800 rounded-lg shadow-md max-w-4xl mx-auto">
       <h2 className="text-white font-bold text-2xl mb-4">
@@ -131,7 +161,7 @@ export default function JourneyDataDisplay() {
           let totalFuelOrEnergyUsed;
           let displayCost;
 
-          if (journey.fuelType === "electric") {
+          if (journey.fuelType === "Electric") {
             totalFuelOrEnergyUsed =
               journey.averageConsumption && journey.distance
                 ? `${(
@@ -180,17 +210,18 @@ export default function JourneyDataDisplay() {
                   Consumption:{" "}
                   <span className="font-normal">
                     {journey.averageConsumption || "N/A"}
-                  </span>{" "}<span className="font-normal">
-                  ({journey.fuelType === "electric" ? "kWh/100km" : "l/100km"})
+                  </span>{" "}
+                  <span className="font-normal">
+                    ({journey.fuelType === "electric" ? "kWh/100km" : "l/100km"}
+                    )
                   </span>
                 </p>
                 <p className="text-gray-300 font-semibold">
                   Distance:{" "}
                   <span className="font-normal">
                     {journey.distance || "N/A"}
-                  </span>{" "}<span className="font-normal">
-                  km
-                  </span>
+                  </span>{" "}
+                  <span className="font-normal">km</span>
                 </p>
                 <p className="text-gray-300 font-semibold">
                   Fuel type:{" "}
@@ -222,6 +253,23 @@ export default function JourneyDataDisplay() {
           );
         })}
       </div>
+      <div>
+      <button
+        onClick={prevPage}
+        disabled={page === 0}
+        className="mr-2 py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+      >
+        Previous
+      </button>
+      <button
+        onClick={nextPage}
+        disabled={!hasMorePages || journeys.length < 5}
+        className="py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+      >
+        Next
+      </button>
+      </div>
     </div>
   );
 }
+

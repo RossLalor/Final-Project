@@ -9,7 +9,11 @@ import { GLTFModel, AmbientLight, DirectionLight } from "react-3d-viewer";
 
 export default function Home() {
   const { isSignedIn, user } = useUser();
-  const modelPath = "/chevy_camaro_ss.glb";
+  const [refreshKey, setRefreshKey] = useState(0); // refresh key to trigger updates
+
+  const handleRefreshJourneys = () => {
+    setRefreshKey((prevKey) => prevKey + 1); // increment key to trigger effect
+  };
 
   if (isSignedIn) {
     return (
@@ -17,7 +21,7 @@ export default function Home() {
         <div className="backdrop-blur-[3px] min-h-screen">
           <div className="flex justify-center py-4">
             <div>
-              <h1 className="backdrop-blur-md rounded-3xl bg-slate-800 drop-shadow-lg font-extrabold sm:text-[3rem] py-8 px-4 max-w-4xl text-white text-center">
+              <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-400 to-blue-600">
                 <div className="justify-center flex">
                   Greetings, {user?.firstName}{" "}
                   <div className="px-4">
@@ -29,10 +33,9 @@ export default function Home() {
                   </div>
                 </div>
               </h1>
-              <DongieWongies />
-              <JourneyDataDisplay />
+              <DongieWongies onAddSuccess={handleRefreshJourneys} />
+              <JourneyDataDisplay key={refreshKey} />
             </div>
-
           </div>
         </div>
       </main>

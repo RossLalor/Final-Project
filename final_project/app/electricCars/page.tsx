@@ -71,24 +71,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="text-center">
-            <h2 className="text-3xl font-semibold mb-6">Explore More</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Placeholder for additional content blocks */}
-              <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
-                <h3 className="font-semibold">Topic Placeholder</h3>
-                <p className="text-gray-400 mt-2">
-                  Brief description or introduction to the topic.
-                </p>
-                {/* Placeholder for an image */}
-                <div className="mt-3 bg-gray-700 h-32 rounded-md flex items-center justify-center">
-                  <span>Image Placeholder</span>
-                </div>
-              </div>
-              {/* Repeat the above block for more topics */}
-            </div>
-          </div>
         </section>
       </div>
     </main>
