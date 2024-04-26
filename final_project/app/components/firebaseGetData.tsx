@@ -18,6 +18,7 @@ import { QueryDocumentSnapshot } from "firebase/firestore";
 import { format } from "date-fns";
 import firebase from "firebase/compat/app";
 
+// To get access to the firebase database
 const firebaseConfig = {
   apiKey: "AIzaSyDSPoV9ip_Ti5qDbRb6l8kQmaarmunRB-A",
   authDomain: "year4-final.firebaseapp.com",
@@ -28,24 +29,26 @@ const firebaseConfig = {
   measurementId: "G-P2W1S16X93",
 };
 
+// Initialize the app
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Function to display the journey data
 export default function JourneyDataDisplay() {
+  // Defining all of the constants and states
   const { user } = useUser();
   const [journeys, setJourneys] = useState<Journey[]>([]);
   const [firstVisible, setFirstVisible] =
-    useState<QueryDocumentSnapshot<DocumentData> | null>(null);
+    useState<QueryDocumentSnapshot<DocumentData> | null>(null); // State to store the first visible document
   const [lastVisible, setLastVisible] =
-    useState<QueryDocumentSnapshot<DocumentData> | null>(null);
-  const [page, setPage] = useState(0); // For pagination (to be added)
+    useState<QueryDocumentSnapshot<DocumentData> | null>(null); // State to store the last visible document
+  const [page, setPage] = useState(0); // For pagination
   const [fuelCost, setFuelCost] = useState(""); // State to store the cost per liter
-  const [electricCost, setElectricCost] = useState(""); // State to store the cost per liter
-  const [refetchTrigger, setRefetchTrigger] = useState(0);
+  const [electricCost, setElectricCost] = useState(""); // State to store the cost per KWH
+  const [refetchTrigger, setRefetchTrigger] = useState(0); // New state to trigger refetch
   const [hasMorePages, setHasMorePages] = useState(true); // New state to manage page availability
 
-
- // Initialize docSnaps as an empty array
+  // Initialize docSnaps as an empty array
   const [pageSnapshots, setPageSnapshots] = useState<
     QueryDocumentSnapshot<DocumentData>[]
   >([]);
@@ -89,23 +92,23 @@ export default function JourneyDataDisplay() {
           const querySnapshot = await getDocs(paginatedQuery);
           if (!querySnapshot.empty) {
             setJourneys(
-              querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+              querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) // Map the data to the journey object
             );
-            setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]);
-            setFirstVisible(querySnapshot.docs[0]);
+            setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]); // Set the last visible document
+            setFirstVisible(querySnapshot.docs[0]); // Set the first visible document
             // Maintain the snapshot history for pagination
             const newSnapshots = [...pageSnapshots];
             newSnapshots[page + 1] =
               querySnapshot.docs[querySnapshot.docs.length - 1];
-              setPageSnapshots(newSnapshots);
-              // Determine if there are more pages
-              setHasMorePages(querySnapshot.docs.length === 5);
-            } else {
-              setHasMorePages(false); // No more data to fetch
-            }
+            setPageSnapshots(newSnapshots);
+            // Determine if there are more pages
+            setHasMorePages(querySnapshot.docs.length === 5);
+          } else {
+            setHasMorePages(false); // No more data to fetch
+          }
         }
       } catch (error) {
-        console.error("Error fetching journeys: ", error);
+        console.error("Error fetching journeys: ", error); // when booboo happens
       }
     };
 
@@ -121,11 +124,13 @@ export default function JourneyDataDisplay() {
     try {
       await deleteDoc(journeyDocRef);
       console.log("Journey deleted:", journeyId);
-      setRefetchTrigger(prev => prev + 1); // Trigger a refetch
+      setRefetchTrigger((prev) => prev + 1); // Trigger a refetch
     } catch (error) {
       console.error("Error deleting journey: ", error);
     }
   };
+
+  // Functions for the next and previous buttons
   const nextPage = () => {
     setPage((prev) => prev + 1);
   };
@@ -156,11 +161,12 @@ export default function JourneyDataDisplay() {
           className="w-full p-2 bg-gray-700 text-white rounded"
         />
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4"> 
         {journeys.map((journey) => {
           let totalFuelOrEnergyUsed;
           let displayCost;
 
+          // parseFloat used to convert strings to floating point numbers
           if (journey.fuelType === "Electric") {
             totalFuelOrEnergyUsed =
               journey.averageConsumption && journey.distance
@@ -253,23 +259,22 @@ export default function JourneyDataDisplay() {
           );
         })}
       </div>
-      <div>
-      <button
-        onClick={prevPage}
-        disabled={page === 0}
-        className="mr-2 py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
-      >
-        Previous
-      </button>
-      <button
-        onClick={nextPage}
-        disabled={!hasMorePages || journeys.length < 5}
-        className="py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
-      >
-        Next
-      </button>
+      <div> 
+        <button
+          onClick={prevPage}
+          disabled={page === 0}
+          className="mr-2 py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+        >
+          Previous
+        </button>
+        <button
+          onClick={nextPage}
+          disabled={!hasMorePages || journeys.length < 5}
+          className="py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+        >
+          Next
+        </button>
       </div>
     </div>
-  );
+  );// Buttons to trigger the pagination scripts above
 }
-
