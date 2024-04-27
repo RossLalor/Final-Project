@@ -6,13 +6,10 @@ import { SignIn } from "@clerk/nextjs";
 import Navbar from "../components/Navbar";
 import { collection, addDoc } from "firebase/firestore";
 import { IoBarChart } from "react-icons/io5";
-import { HiLightningBolt } from "react-icons/hi";
+import { HiLightningBolt, HiQuestionMarkCircle } from "react-icons/hi";
 import { FaBook } from "react-icons/fa";
-import { HiQuestionMarkCircle } from "react-icons/hi";
-import { TbListDetails } from "react-icons/tb";
-import { Tb3DCubeSphere } from "react-icons/tb";
-
-
+import { TbListDetails, Tb3DCubeSphere } from "react-icons/tb";
+import { LuFuel } from "react-icons/lu";
 
 export default function Home() {
   // add item to database
@@ -49,7 +46,8 @@ export default function Home() {
                     </div>
 
                     <p className="text-gray-400 mt-2">
-                      Information about SDG Goals and which ones apply to this site.
+                      Information about SDG Goals and which ones apply to this
+                      site.
                     </p>
                   </div>
                 </Link>
@@ -63,7 +61,8 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-gray-400 mt-2">
-                      Wanna see how healthy the air quality is in a city near you? Check it here!
+                      Wanna see how healthy the air quality is in a city near
+                      you? Check it here!
                     </p>
                   </div>
                 </Link>
@@ -72,7 +71,7 @@ export default function Home() {
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
                       <div className="flex flex-inline gap-1">
-                      <TbListDetails />
+                        <TbListDetails />
                         Research Page
                       </div>
                     </div>
@@ -86,7 +85,7 @@ export default function Home() {
                   <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                     <div className="font-semibold cursor-pointer">
                       <div className="flex flex-inline gap-1">
-                      <Tb3DCubeSphere />
+                        <Tb3DCubeSphere />
                         3D Model Viewer
                       </div>
                     </div>
@@ -123,7 +122,20 @@ export default function Home() {
                     </p>
                   </div>
                 </Link>
-                {/* More blocks can be added for other pages */}
+                <Link href={`/hvo`}>
+                  <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
+                    <div className="font-semibold cursor-pointer">
+                      <div className="flex flex-inline gap-1">
+                        <LuFuel />
+                        HVO
+                      </div>
+                    </div>
+
+                    <p className="text-gray-400 mt-2">
+                      What is HVO and how could it be a game changer?
+                    </p>
+                  </div>
+                </Link>
               </div>
             </div>
           </section>
