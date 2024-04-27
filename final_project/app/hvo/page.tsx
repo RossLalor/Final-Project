@@ -90,10 +90,10 @@ export default function Home() {
                   scales: {
                     x: {
                       ticks: {
-                        color: "white", // Sets the x-axis label colors to white
+                        color: "white",
                       },
                       grid: {
-                        color: "rgba(255, 255, 255, 0.1)", // Optional: adjusts grid line colors
+                        color: "rgba(255, 255, 255, 0.1)", // adjusts grid line colors
                       },
                     },
                     y: {
@@ -101,7 +101,7 @@ export default function Home() {
                         color: "white", // Sets the y-axis label colors to white
                       },
                       grid: {
-                        color: "rgba(255, 255, 255, 0.1)", // Optional: adjusts grid line colors
+                        color: "rgba(255, 255, 255, 0.1)",
                       },
                     },
                   },
@@ -148,18 +148,18 @@ export default function Home() {
                   scales: {
                     x: {
                       ticks: {
-                        color: "white", // Sets the x-axis label colors to white
+                        color: "white",
                       },
                       grid: {
-                        color: "rgba(255, 255, 255, 0.1)", // Optional: adjusts grid line colors
+                        color: "rgba(255, 255, 255, 0.1)", //adjusts grid line colors
                       },
                     },
                     y: {
                       ticks: {
-                        color: "white", // Sets the y-axis label colors to white
+                        color: "white", 
                       },
                       grid: {
-                        color: "rgba(255, 255, 255, 0.1)", // Optional: adjusts grid line colors
+                        color: "rgba(255, 255, 255, 0.1)", //adjusts grid line colors
                       },
                     },
                   },

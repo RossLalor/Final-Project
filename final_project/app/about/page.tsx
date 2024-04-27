@@ -16,12 +16,12 @@ export default function Home() {
                   What is this site about?
                 </div>
                 <p className="text-gray-400 mt-2">
-                  This site aims to answer a question which doesn&apos;t seem to
-                  have a definitive answer: Are electric cars really better for
-                  the environment than petrol cars? Also, should you buy one?
-                  The answers to these questions will be explored using research
-                  data, ai, information the author has gathered and information
-                  that fellow users have left about their experiences with their
+                  Leccy cars (slang for Electric Cars) is a site that aims to
+                  answer a couple of research questions, namely: Do electric
+                  cars have any tangible benefits to air quality and are there
+                  any safety risks associated with their widespread adoption?
+                  These questions will be answered by the author using research
+                  data, AI and information that users have left about their
                   cars.
                 </p>
               </div>

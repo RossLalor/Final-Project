@@ -129,7 +129,8 @@ export default function DongieWongies({ onAddSuccess }: { onAddSuccess: () => vo
                 Distance (km)
               </label>
               <input
-                type="tel"
+                type="number"
+                step={0.1}
                 maxLength={6}
                 name="distance"
                 id="distance"
@@ -186,7 +187,8 @@ export default function DongieWongies({ onAddSuccess }: { onAddSuccess: () => vo
                 Average Consumption ({formData.fuelType === "Electric" ? "kWh/100km" : "l/100km"})
               </label>
               <input
-                type="tel"
+                type="number"
+                step="0.1"
                 maxLength={4}
                 name="averageConsumption"
                 id="averageConsumption"
