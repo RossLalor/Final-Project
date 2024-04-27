@@ -50,6 +50,18 @@ const Navbar = () => {
             </div>
           </Link>
 
+          <Link href="/hvo">
+            <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
+              HVO
+            </div>
+          </Link>
+
+          <Link href="/electric">
+            <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
+              Electric Cars
+            </div>
+          </Link>
+
           <Link href="/about">
             <div className="hover:text-gray-300 transition duration-300 cursor-pointer">
               About

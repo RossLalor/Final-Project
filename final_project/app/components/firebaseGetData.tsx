@@ -161,7 +161,7 @@ export default function JourneyDataDisplay() {
           className="w-full p-2 bg-gray-700 text-white rounded"
         />
       </div>
-      <div className="space-y-4"> 
+      <div className="space-y-4">
         {journeys.map((journey) => {
           let totalFuelOrEnergyUsed;
           let displayCost;
@@ -259,7 +259,7 @@ export default function JourneyDataDisplay() {
           );
         })}
       </div>
-      <div> 
+      <div>
         <button
           onClick={prevPage}
           disabled={page === 0}
@@ -276,5 +276,5 @@ export default function JourneyDataDisplay() {
         </button>
       </div>
     </div>
-  );// Buttons to trigger the pagination scripts above
+  ); // Buttons to trigger the pagination scripts above
 }

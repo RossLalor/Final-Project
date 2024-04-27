@@ -10,6 +10,8 @@ import { HiLightningBolt, HiQuestionMarkCircle } from "react-icons/hi";
 import { FaBook } from "react-icons/fa";
 import { TbListDetails, Tb3DCubeSphere } from "react-icons/tb";
 import { LuFuel } from "react-icons/lu";
+import { RxLightningBolt } from "react-icons/rx";
+
 
 export default function Home() {
   // add item to database
@@ -133,6 +135,20 @@ export default function Home() {
 
                     <p className="text-gray-400 mt-2">
                       What is HVO and how could it be a game changer?
+                    </p>
+                  </div>
+                </Link>
+                <Link href={`/electric`}>
+                  <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
+                    <div className="font-semibold cursor-pointer">
+                      <div className="flex flex-inline gap-1">
+                      <RxLightningBolt />
+                        Should you go Electric?
+                      </div>
+                    </div>
+
+                    <p className="text-gray-400 mt-2">
+                      What are the benefits of going electric?
                     </p>
                   </div>
                 </Link>
