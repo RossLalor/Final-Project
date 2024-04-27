@@ -74,7 +74,7 @@ export default function Home() {
                 promising to shake up the industry as it begs the question of
                 whether an electric car is even necessary considering how much
                 emissions are saved from this. It also bridges the gap of one of
-                Diesel's shortcomings which is that it emits a lot of gases that
+                Diesel&apos;s shortcomings which is that it emits a lot of gases that
                 are very harmful to animal and human life.
               </p>
             </div>
