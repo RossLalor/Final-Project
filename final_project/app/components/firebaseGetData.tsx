@@ -259,18 +259,18 @@ export default function JourneyDataDisplay() {
           );
         })}
       </div>
-      <div>
+      <div className="flex items-center justify-center mt-4">
         <button
           onClick={prevPage}
           disabled={page === 0}
-          className="mr-2 py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+          className="mr-2 py-2 px-4 bg-gray-500 w-48 text-white rounded disabled:bg-gray-700"
         >
           Previous
         </button>
         <button
           onClick={nextPage}
           disabled={!hasMorePages || journeys.length < 5}
-          className="py-2 px-4 bg-gray-500 text-white rounded disabled:bg-gray-700"
+          className="py-2 px-4 bg-gray-500 w-48 text-white rounded disabled:bg-gray-700"
         >
           Next
         </button>

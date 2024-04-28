@@ -12,7 +12,7 @@ export default function Home() {
           <div className="flex justify-center py-10">
             <div className="w-full">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
-                <div className="font-semibold cursor-pointer text-2xl">
+                <div className="font-semibold cursor-pointer text-center text-2xl">
                   Are Electric Cars Really Better for the Environment?
                 </div>
                 <p className="text-gray-400 mt-2 text-center justify text-balance">

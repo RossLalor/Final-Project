@@ -78,9 +78,11 @@ export default function Home() {
                 that are very harmful to animal and human life.
               </p>
             </div>
-            
+
             <div className="bg-gray-800 h-[60vh] px-6 py-12 rounded-lg shadow-lg mt-8 ">
-              <p className="text-center text-3xl">HVO Emissions VS Diesel Emissions</p>
+              <p className="text-center text-3xl">
+                HVO Emissions VS Diesel Emissions
+              </p>
               <Bar
                 data={showCo2 ? dieselWithHVO : dieselData}
                 options={{
@@ -124,7 +126,6 @@ export default function Home() {
                   },
                 }}
               />
-             
             </div>
             <div className="mt-8">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
@@ -156,7 +157,7 @@ export default function Home() {
                     },
                     y: {
                       ticks: {
-                        color: "white", 
+                        color: "white",
                       },
                       grid: {
                         color: "rgba(255, 255, 255, 0.1)", //adjusts grid line colors
@@ -199,6 +200,12 @@ export default function Home() {
                   more efficiently for longer. And finally, it is more expensive
                   than Diesel at the moment, however, this is expected to change
                   as popularity rises and more pumps end up stocking it.
+                  <br />
+                  One final point to consider is the use of palm oil in making
+                  this fuel. Some firms use this to create the fuel which is an
+                  active contributor to deforestation. This is a major downside
+                  to the fuel and is something to consider when looking at this
+                  as a competitor to Diesel fuel.
                 </p>
               </div>
             </div>
@@ -219,9 +226,17 @@ export default function Home() {
                   manufacturer millions of electric cars which in itself would
                   be a massive reduction in emissions.
                 </p>
-                <p className="text-slate-500 text-wrap break-all">Data sourced from: <br></br>https://www.pendle.gov.uk/download/meetings/id/26369/item_15_appendix_3#:~:text=for%20every%201%2C000%20litres%20of%20HVO%20burned,will%20produce%200.195%20tonnes%20CO2.</p>
-                <p className="text-slate-500 break-all"> https://www.mdpi.com/1996-1073/16/12/4785</p>
-                <p className="text-slate-500 break-all">https://car-emissions.com/cars/view/78378</p>
+                <p className="text-slate-500 text-wrap break-all">
+                  Data sourced from: <br></br>
+                  https://www.pendle.gov.uk/download/meetings/id/26369/item_15_appendix_3#:~:text=for%20every%201%2C000%20litres%20of%20HVO%20burned,will%20produce%200.195%20tonnes%20CO2.
+                </p>
+                <p className="text-slate-500 break-all">
+                  {" "}
+                  https://www.mdpi.com/1996-1073/16/12/4785
+                </p>
+                <p className="text-slate-500 break-all">
+                  https://car-emissions.com/cars/view/78378
+                </p>
               </div>
             </div>
           </div>

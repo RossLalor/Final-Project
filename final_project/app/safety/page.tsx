@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   const dieselWithHVO = {
-    labels: ["CO2 Comparison"],
+    labels: ["Water (litres)"],
     datasets: [
       {
         label: "Water to extinguish petrol car fire (litres)",

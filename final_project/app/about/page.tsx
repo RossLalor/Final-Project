@@ -1,3 +1,4 @@
+import CustomButton from "../components/ConfettiCannon";
 export default function Home() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex justify-center py-10">
+          <div className="flex justify-center pt-2 ">
             <div className="">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                 <div className="font-semibold cursor-pointer">
@@ -21,14 +22,14 @@ export default function Home() {
                   cars have any tangible benefits to air quality and are there
                   any safety risks associated with their widespread adoption?
                   These questions will be answered by the author using research
-                  data, AI and information that users have left about their
+                  data, and information that users have left about their
                   cars.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex justify-center py-10">
+          <div className="flex justify-center py-4">
             <div className="">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                 <div className="font-semibold cursor-pointer">About me:</div>
@@ -49,6 +50,8 @@ export default function Home() {
                   navigation throughout the site I have made. This semester has
                   put me in the most jaded possible state I have ever been in in
                   my life.
+
+                  <CustomButton />
                 </p>
               </div>
             </div>
