@@ -24,7 +24,7 @@ function modelPage() {
                 dpr={[1, 2]}
                 shadows
                 camera={{ fov: 60, near: 0.6, far: 1000 }}
-                style={{ position: "absolute", width: "100%", height: "100%" }}
+                style={{ position: "absolute", width: "100%", height: "100%", touchAction: "none" }}
               >
                 <color attach="background" args={["#101010"]} />
                 <PresentationControls
@@ -60,7 +60,7 @@ function modelPage() {
                 dpr={[1, 2]}
                 shadows
                 camera={{ fov: 60 }}
-                style={{ position: "absolute", width: "100%", height: "100%" }}
+                style={{ position: "absolute", width: "100%", height: "100%", touchAction: "none" }}
               >
                 <color attach="background" args={["#101010"]} />
                 <PresentationControls
