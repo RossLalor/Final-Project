@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useClerk } from "@clerk/nextjs";
 import { IoHomeSharp } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   return (

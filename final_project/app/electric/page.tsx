@@ -60,7 +60,7 @@ export default function Home() {
                 <div className="lg:flex-row flex-wrap flex">
                   <div className="lg:w-5/6">
                     <div className="font-semibold cursor-pointer text-xl">
-                      Are they more or less safe?
+                      Are they safer?
                     </div>
                     <p className="text-gray-400 mt-2 justify text-balance">
                       Electric cars are generally safer than their petrol

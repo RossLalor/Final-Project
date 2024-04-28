@@ -31,15 +31,15 @@ export default function Home() {
     labels: ["CO2 Comparison"],
     datasets: [
       {
-        label: "Average Diesel Car Emissions in g/km",
-        data: [123],
-        backgroundColor: ["rgb(59,130,246)"],
+        label: "Water to extinguish petrol car fire (litres)",
+        data: [3800],
+        backgroundColor: ["rgb(160,0,0)"],
         hoverOffset: 4,
       },
       {
-        label: "Average Diesel Car Emissions with HVO in g/km",
-        data: [12.3],
-        backgroundColor: ["rgb(22,163,74)"],
+        label: "Water to extinguish electric car fire (litres)",
+        data: [88800],
+        backgroundColor: ["rgb(255,0,0)"],
         hoverOffset: 4,
       },
     ],
@@ -60,81 +60,47 @@ export default function Home() {
           <div className="justify-center py-10">
             <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
               <div className="font-semibold cursor-pointer ">
-                What exactly is HVO?
+                Electric Car Safety Concerns
               </div>
               <p className="text-gray-400 mt-2">
-                HVO is a renewable diesel fuel that is made from waste and
-                residue fats and oils. It is a drop-in fuel, meaning it can be
-                used in existing diesel engines without any modifications. HVO
-                is a sustainable alternative to traditional diesel fuel, as it
-                produces significantly lower greenhouse gas emissions. This is
-                showing to be a promising alternative to traditional diesel
-                fuel, and is being used in various industries, including
-                transportation, construction, and agriculture. This benefit is
-                promising to shake up the industry as it begs the question of
-                whether an electric car is even necessary considering how much
-                emissions are saved from this. It also bridges the gap of one of
-                Diesel&apos;s shortcomings which is that it emits a lot of gases
-                that are very harmful to animal and human life.
+                The major safety concern with electric cars is the battery. If
+                the battery overheats or is punctured, it will catch fire.
+                Manufacturers go to great lengths to ensure that this does not
+                happen but from time to time a battery puncture will occur or a
+                spontaneous failure of a cell. This cell failure will spread to
+                other cells as it overheats and catches fire and what ends up
+                occuring is known as thermal runaway. This wouldn&apos;t be so
+                bad if you could just pour water on the fire to stop it, but the
+                self sustaining aspect of a lithium ion fire has lead to this
+                not being a viable option or requiring an extremely large amount
+                of water to accomplish. <br /> Some fire fighters have adopted
+                an approach to just let the vehicle burn itself out as once the
+                lithium battery has lost all of its energy the reaction will
+                stop. Attempting to extinguish the fire can lead to spontaneous
+                reignition while transporting the charred remains away to be
+                disposed of. <br />
+              </p>
+              <p className="text-gray-500 text-wrap break-all">
+                https://www.frontiersin.org/articles/10.3389/fenrg.2019.00065/full
               </p>
             </div>
-            
-            <div className="bg-gray-800 h-[60vh] px-6 py-12 rounded-lg shadow-lg mt-8 ">
-              <p className="text-center text-3xl">HVO Emissions VS Diesel Emissions</p>
-              <Bar
-                data={showCo2 ? dieselWithHVO : dieselData}
-                options={{
-                  indexAxis: "y",
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  scales: {
-                    x: {
-                      ticks: {
-                        color: "white",
-                      },
-                      grid: {
-                        color: "rgba(255, 255, 255, 0.1)", // adjusts grid line colors
-                      },
-                    },
-                    y: {
-                      ticks: {
-                        color: "white", // Sets the y-axis label colors to white
-                      },
-                      grid: {
-                        color: "rgba(255, 255, 255, 0.1)",
-                      },
-                    },
-                  },
-                  animation: {
-                    onComplete: () => {
-                      setDelayed(true);
-                    },
-                    delay: (context) => {
-                      let delay = 0;
-                      if (
-                        context.type === "data" &&
-                        context.mode === "default" &&
-                        !delayed
-                      ) {
-                        delay =
-                          context.dataIndex * 500 + context.datasetIndex * 500;
-                      }
-                      return delay;
-                    },
-                  },
-                }}
-              />
-             
-            </div>
+
             <div className="mt-8">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                 <div className="font-semibold cursor-pointer text-xl">
-                  What about CO2?
+                  Spontaneous failure
                 </div>
-                <p className="text-gray-400 mt-2">
-                  It isn&apos;t just these emissions that are reduced however,
-                  the largest reduction by far is Carbon Dioxide which sees up
-                  to a 90 percent reduction!
+                <p className="text-gray-400 mt-2 justify ">
+                  Thermal runaway is already a big enough concern, but electric
+                  cars are known to suffer spontaneous battery failure. A
+                  microscopic manufacturing defect could occur in a cell which
+                  will cause it to overheat and fail and thus begin the chain
+                  reaction with no obvious reason from the outside. This is
+                  extremely concerning as a possibility as the car could be
+                  somewhere sensitive such as a garage or a ship or the like.
+                  With them combusting and not having a place to put them, the
+                  fire can destroy everything around it. In a parking garage
+                  this could even destroy the whole building.
                 </p>
               </div>
             </div>
@@ -156,7 +122,7 @@ export default function Home() {
                     },
                     y: {
                       ticks: {
-                        color: "white", 
+                        color: "white",
                       },
                       grid: {
                         color: "rgba(255, 255, 255, 0.1)", //adjusts grid line colors
@@ -219,9 +185,17 @@ export default function Home() {
                   manufacturer millions of electric cars which in itself would
                   be a massive reduction in emissions.
                 </p>
-                <p className="text-slate-500 text-wrap break-all">Data sourced from: <br></br>https://www.pendle.gov.uk/download/meetings/id/26369/item_15_appendix_3#:~:text=for%20every%201%2C000%20litres%20of%20HVO%20burned,will%20produce%200.195%20tonnes%20CO2.</p>
-                <p className="text-slate-500 break-all"> https://www.mdpi.com/1996-1073/16/12/4785</p>
-                <p className="text-slate-500 break-all">https://car-emissions.com/cars/view/78378</p>
+                <p className="text-slate-500 text-wrap break-all">
+                  Data sourced from: <br></br>
+                  https://www.pendle.gov.uk/download/meetings/id/26369/item_15_appendix_3#:~:text=for%20every%201%2C000%20litres%20of%20HVO%20burned,will%20produce%200.195%20tonnes%20CO2.
+                </p>
+                <p className="text-slate-500 break-all">
+                  {" "}
+                  https://www.mdpi.com/1996-1073/16/12/4785
+                </p>
+                <p className="text-slate-500 break-all">
+                  https://car-emissions.com/cars/view/78378
+                </p>
               </div>
             </div>
           </div>
