@@ -19,7 +19,7 @@ function modelPage() {
       <div className="container mx-auto px-2 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
-            <div className="w-full mb-4 h-[500px] relative">
+            <div className="w-full mb-4 h-[500px] relative touch-action: manipulation;">
               <Canvas
                 dpr={[1, 2]}
                 shadows
@@ -55,7 +55,7 @@ function modelPage() {
           </div>
 
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
-            <div className="w-full mb-4 h-[500px] relative">
+            <div className="w-full mb-4 h-[500px] relative touch-action: manipulation;">
               <Canvas
                 dpr={[1, 2]}
                 shadows

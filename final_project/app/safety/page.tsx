@@ -49,7 +49,7 @@ export default function Home() {
   Chart.register(ArcElement, Tooltip, Legend);
   return (
     <>
-      <main className="min-h-screen bg-slate-900 text-white">
+      <main className="min-h-screen bg-slate-900 text-white animate">
         <div className="container mx-auto px-18 py-10">
           <div className="flex justify-center py-4">
             <h1 className="text-4xl sm:text-6xl h-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
@@ -104,7 +104,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="bg-gray-800 h-[22vh] p-6 rounded-lg shadow-lg mt-8">
+            <div className="bg-gray-800 h-[36vh] p-6 rounded-lg shadow-lg mt-8">
               <Bar
                 data={showCo2 ? dieselWithHVO : dieselWithHVO}
                 options={{
@@ -152,19 +152,21 @@ export default function Home() {
             <div className="mt-8">
               <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                 <div className="font-semibold cursor-pointer text-xl">
-                  So what&apos;s the catch?
+                  So What Can Be Done?
                 </div>
                 <p className="text-gray-400 mt-2">
-                  There are a couple of downsides to HVO fuel. Firstly, it is
-                  quite difficult to find so far with very few pumps in Ireland
-                  stocking it as of the time of writing. Secondly, it is ever so
-                  slightly less energy dense than Diesel so you will end up
-                  using more of it for the same distance being covered. This
-                  will be offset slightly by the fact that because it is so much
-                  cleaner, your car&apos;s engine will remain cleaner and run
-                  more efficiently for longer. And finally, it is more expensive
-                  than Diesel at the moment, however, this is expected to change
-                  as popularity rises and more pumps end up stocking it.
+                  Not a whole lot can be done as long as manufacturers remain
+                  dependent on lithium ion based battery chemistry. Another
+                  large issue with this is that the amount of water necessary to
+                  extinguish an electric car fire is orders of magnitude larger
+                  than an ordinary fire. Research conducted by CTIF showed that
+                  it can take up to 150,000 litres of water to put out an EV
+                  fire. Compare that to an internal combustion based vehicle
+                  which needs 4000 litres on average to be extinguished.
+                </p>
+
+                <p className="text-slate-500 text-wrap break-all">
+                  https://ctif.org/news/150-000-liters-water-needed-put-out-fire-electric-car
                 </p>
               </div>
             </div>
@@ -175,26 +177,17 @@ export default function Home() {
                   Findings
                 </div>
                 <p className="text-gray-400 mt-2">
-                  Overall, HVO looks to be a very promising stopgap between the
-                  transition to fully electric cars or even a solution that
-                  would negate the need for fully electric cars completely. One
-                  extremely key advantage is it is a drop in solution, meaning,
-                  there are no engineering challenges engine wise and car design
-                  wise to it&apos;s widespread adoption. You just put it in your
-                  car instead of diesel and drive. This would remove the need to
-                  manufacturer millions of electric cars which in itself would
-                  be a massive reduction in emissions.
+                  Even taking this into account, electric cars are still safer
+                  due to them being less likely to burst into flames in an
+                  accident, having a stronger chassis to carry the extra weight
+                  AND no engine in the front which allows more room for
+                  strengthening structures and a much lower centre of gravity
+                  due to the batteries being underneath the floor which reduces
+                  the risk of roll over accidents.
                 </p>
                 <p className="text-slate-500 text-wrap break-all">
                   Data sourced from: <br></br>
                   https://www.pendle.gov.uk/download/meetings/id/26369/item_15_appendix_3#:~:text=for%20every%201%2C000%20litres%20of%20HVO%20burned,will%20produce%200.195%20tonnes%20CO2.
-                </p>
-                <p className="text-slate-500 break-all">
-                  {" "}
-                  https://www.mdpi.com/1996-1073/16/12/4785
-                </p>
-                <p className="text-slate-500 break-all">
-                  https://car-emissions.com/cars/view/78378
                 </p>
               </div>
             </div>
