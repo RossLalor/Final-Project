@@ -218,7 +218,7 @@ export default function JourneyDataDisplay() {
                     {journey.averageConsumption || "N/A"}
                   </span>{" "}
                   <span className="font-normal">
-                    ({journey.fuelType === "electric" ? "kWh/100km" : "l/100km"}
+                    ({journey.fuelType === "Electric" ? "kWh/100km" : "l/100km"}
                     )
                   </span>
                 </p>
