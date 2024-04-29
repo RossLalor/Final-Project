@@ -97,16 +97,16 @@ export default function AirQualityPage() {
         type: "bar",
         label: "Bar Dataset",
         data: [69, 200, 45, 190, 44, 212, 34, 182, 57, 168, 61, 177, 41, 200],
-        backgroundColor: ["rgba(255, 99, 132, 0.5)"],
-        borderColor: ["rgb(0,0,255)"],
+        backgroundColor: ["rgba(0, 255, 255, 0.2)"],
+        borderColor: ["rgb(255,255,255)"],
         borderWidth: 1,
       },
       {
         type: "line",
         label: "Line Dataset",
         data: [69, 200, 45, 190, 44, 212, 34, 182, 57, 168, 61, 177, 41, 200],
-        borderColor: "rgb(255,0,0)",
-        backgroundColor: "rgba(75, 192, 192)",
+        borderColor: "rgb(0,255,255)",
+        backgroundColor: "rgba(0,255,255, 0.4)",
         tension: 0.4,
       },
     ],
@@ -234,7 +234,7 @@ export default function AirQualityPage() {
             AQI Examination
           </div>
           <p className="text-gray-400 mt-2 text-center">
-            Plotted over a seven day period in Dublin city (21st April - 29th
+            Plotted over a seven day period in Dublin city (22nd April - 28th
             April), we can clearly see a sinusoidal graph that has developed.
             This is due to emissions raising and falling as the day goes
             onwards, particularly around 17:00. I chose to log this time
