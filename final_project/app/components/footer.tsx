@@ -9,12 +9,14 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-2">Navigation</h3>
             <ul className="list-none">
               <li className="mb-1 "><Link href="/"><span className="text-white hover:text-gray-300 cursor-pointer">Home</span></Link></li>
+              <li className="mb-1 "><Link href="electricCars"><span className="text-white hover:text-gray-300 cursor-pointer">SDG Goals</span></Link></li>
               <li className="mb-1"><Link href="/charts"><span className="text-white hover:text-gray-300 cursor-pointer">Charts</span></Link></li>
               <li className="mb-1"><Link href="/wander"><span className="text-white hover:text-gray-300 cursor-pointer">3D Model Viewer</span></Link></li>
               <li className="mb-1"><Link href="/Research"><span className="text-white hover:text-gray-300 cursor-pointer">Research</span></Link></li>
               <li className="mb-1"><Link href="/userPage"><span className="text-white hover:text-gray-300 cursor-pointer">User Diary Page</span></Link></li>
               <li className="mb-1"><Link href="/electric"><span className="text-white hover:text-gray-300 cursor-pointer">Electric Cars</span></Link></li>
               <li className="mb-1"><Link href="/hvo"><span className="text-white hover:text-gray-300 cursor-pointer">HVO</span></Link></li>
+              <li className="mb-1"><Link href="/safety"><span className="text-white hover:text-gray-300 cursor-pointer">Safety</span></Link></li>
               <li className="mb-1"><Link href="/about"><span className="text-white hover:text-gray-300 cursor-pointer">About</span></Link></li>
             </ul>
           </div>
